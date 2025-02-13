@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ClassDiagram:ModelBase xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ClassDiagram="http://ClassDiagram/1.0">
+  <voidT name="void"/>
+  <stringT name="string"/>
+  <intT name="integer"/>
+  <boolT name="boolean"/>
+  <allClasses name="Account" interfaces="//@allInterfaces.0" associations="//@allAssociations.0/@ends.0">
+    <attributes name="id" type="//@intT" multiplicity="1"/>
+    <attributes name="overdraft" type="//@intT" multiplicity="1"/>
+    <attributes name="balance" type="//@intT" multiplicity="1"/>
+    <methods name="getOverdraft" returnType="//@intT"/>
+    <methods name="changeOverdraft" returnType="//@voidT" paramTypes="//@intT">
+      <paramNames>val</paramNames>
+    </methods>
+    <methods name="getId" returnType="//@intT"/>
+    <methods name="setId" returnType="//@voidT" paramTypes="//@intT">
+      <paramNames>value</paramNames>
+    </methods>
+    <methods name="setOverdraft" returnType="//@voidT" paramTypes="//@intT">
+      <paramNames>value</paramNames>
+    </methods>
+    <methods name="getBalance" returnType="//@intT"/>
+    <methods name="setBalance" returnType="//@voidT" paramTypes="//@intT">
+      <paramNames>value</paramNames>
+    </methods>
+  </allClasses>
+  <allClasses name="Client" associations="//@allAssociations.0/@ends.1">
+    <attributes name="name" type="//@stringT" multiplicity="1"/>
+    <attributes name="addr" type="//@stringT" multiplicity="1"/>
+    <methods name="getName" returnType="//@stringT"/>
+    <methods name="changeAddr" returnType="//@voidT" paramTypes="//@stringT">
+      <paramNames>addr</paramNames>
+    </methods>
+    <methods name="setName" returnType="//@voidT" paramTypes="//@stringT">
+      <paramNames>value</paramNames>
+    </methods>
+    <methods name="getAddr" returnType="//@stringT"/>
+    <methods name="setAddr" returnType="//@voidT" paramTypes="//@stringT">
+      <paramNames>value</paramNames>
+    </methods>
+  </allClasses>
+  <allInterfaces name="IOperations" implementedBy="//@allClasses.0">
+    <methods name="whitdraw" returnType="//@voidT" paramTypes="//@intT">
+      <paramNames>val</paramNames>
+    </methods>
+    <methods name="deposit" returnType="//@voidT" paramTypes="//@intT">
+      <paramNames>val</paramNames>
+    </methods>
+  </allInterfaces>
+  <allAssociations name="">
+    <ends name="accounts" lowerBound="1" upperBound="-1" _class="//@allClasses.0"/>
+    <ends name="owner" lowerBound="1" upperBound="1" _class="//@allClasses.1"/>
+  </allAssociations>
+</ClassDiagram:ModelBase>

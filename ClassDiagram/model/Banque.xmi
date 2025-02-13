@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram:ModelBase
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:ClassDiagram="http://ClassDiagram/1.0">
+  <voidT name="void"/>
+  <stringT name="string"/>
+  <intT name="integer"/>
+  <boolT name="boolean"/>
+  <allClasses name="Account" interfaces="//@allInterfaces.0" associations="//@allAssociations.0/@ends.0">
+    <attributes name="id" type="//@intT" owner="//@allClasses.0" multiplicity="1"/>
+    <attributes name="overdraft" type="//@intT" owner="//@allClasses.0" multiplicity="1"/>
+    <attributes name="balance" type="//@intT" owner="//@allClasses.0" multiplicity="1"/>
+    <methods name="getOverdraft" returnType="//@intT" owner="//@allClasses.0"/>
+    <methods name="changeOverdraft" returnType="//@voidT" paramTypes="//@intT" owner="//@allClasses.0">
+      <paramNames>val</paramNames>
+    </methods>
+    <methods name="getId" returnType="//@intT" owner="//@allClasses.0"/>
+  </allClasses>
+  <allClasses name="Client" associations="//@allAssociations.0/@ends.1">
+    <attributes name="name" type="//@stringT" owner="//@allClasses.1" multiplicity="1"/>
+    <attributes name="addr" type="//@stringT" owner="//@allClasses.1" multiplicity="1"/>
+    <methods name="getName" returnType="//@stringT" owner="//@allClasses.1"/>
+    <methods name="changeAddr" returnType="//@voidT" paramTypes="//@stringT" owner="//@allClasses.1">
+      <paramNames>addr</paramNames>
+    </methods>
+  </allClasses>
+  <allInterfaces name="IOperations" implementedBy="//@allClasses.0">
+    <methods name="whitdraw" returnType="//@voidT" paramTypes="//@intT" owner="//@allInterfaces.0">
+      <paramNames>val</paramNames>
+    </methods>
+    <methods name="deposit" returnType="//@voidT" paramTypes="//@intT" owner="//@allInterfaces.0">
+      <paramNames>val</paramNames>
+    </methods>
+  </allInterfaces>
+  <allAssociations name="">
+    <ends name="accounts" lowerBound="1" upperBound="-1" _class="//@allClasses.0" association="//@allAssociations.0"/>
+    <ends name="owner" lowerBound="1" upperBound="1" _class="//@allClasses.1" association="//@allAssociations.0"/>
+  </allAssociations>
+</ClassDiagram:ModelBase>

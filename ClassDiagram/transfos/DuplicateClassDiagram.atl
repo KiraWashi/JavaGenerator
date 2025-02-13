@@ -1,0 +1,133 @@
+-- @nsURI ClassDiagram=http://ClassDiagram/1.0
+
+module DuplicateClassDiagram;
+create cible : ClassDiagram from source : ClassDiagram;
+
+
+-- ********************************************************************
+-- Duplication de tous les elements du modele a l'identique
+-- Servira de base a l'implementation de transformations
+
+rule duplicateModelBase {
+from
+	sourceBase : ClassDiagram!ModelBase
+to
+	cibleBase : ClassDiagram!ModelBase (
+		allClasses <- sourceBase.allClasses,
+		allInterfaces <- sourceBase.allInterfaces,
+		allAssociations <- sourceBase.allAssociations,
+		voidT <- sourceBase.voidT,
+		intT <- sourceBase.intT,
+		stringT <- sourceBase.stringT,
+		boolT <- sourceBase.boolT
+	)
+}
+
+rule duplicateClass {
+from
+	sourceClass : ClassDiagram!Class
+to
+	cibleClass : ClassDiagram!Class (
+		name <- sourceClass.name,
+		attributes <- sourceClass.attributes,
+		methods <- sourceClass.methods,
+		interfaces <- sourceClass.interfaces,
+		associations <- sourceClass.associations
+	)
+}
+
+rule duplicateInterface  {
+from
+	interfaceSource : ClassDiagram!Interface
+to
+	interfaceCible : ClassDiagram!Interface (
+		name <- interfaceSource.name,
+		methods <- interfaceSource.methods,
+		implementedBy <- interfaceSource.implementedBy
+	)
+}
+
+rule duplicateMethod {
+from
+	methodSource : ClassDiagram!Method
+to
+	methodCible : ClassDiagram!Method (
+		name <- methodSource.name,
+		owner <- methodSource.owner,
+		returnType <- methodSource.returnType,
+		paramTypes <- methodSource.paramTypes,
+		paramNames <- methodSource.paramNames
+	)
+}
+
+rule duplicateAssociationEnd {
+from
+	aeSource : ClassDiagram!AssociationEnd
+to
+	aeCible : ClassDiagram!AssociationEnd (
+		name <- aeSource.name,
+		lowerBound <- aeSource.lowerBound,
+		upperBound <- aeSource.upperBound,
+		_class <- aeSource._class,
+		association <- aeSource.association
+	)
+}
+
+rule duplicateAssociation {
+from
+	associationSource : ClassDiagram!Association 
+to
+	associationCible : ClassDiagram!Association (
+		name <- associationSource.name,
+		ends <- associationSource.ends
+	)
+}
+
+rule duplicationVoidType {
+from
+	voidTypeSource : ClassDiagram!VoidType 
+to
+	voidTypeCible : ClassDiagram!VoidType (
+		name <- voidTypeSource.name
+	)
+}
+
+rule duplicationIntegerType {
+from
+	integerTypeSource : ClassDiagram!IntegerType 
+to
+	integerTypeCible : ClassDiagram!IntegerType (
+		name <- integerTypeSource.name
+	)
+}
+
+rule duplicationStringType {
+from
+	stringTypeSource : ClassDiagram!StringType 
+to
+	stringTypeCible : ClassDiagram!StringType (
+		name <- stringTypeSource.name
+	)
+}
+
+rule duplicationBooleanType {
+from
+	booleanTypeSource : ClassDiagram!BooleanType 
+to
+	booleanTypeCible : ClassDiagram!BooleanType (
+		name <- booleanTypeSource.name
+	)
+}
+
+rule duplicateAttribute {
+from 
+	attributeSource : ClassDiagram!Attribute 
+to
+	attributeTarget : ClassDiagram!Attribute (
+		name <- attributeSource.name,
+		owner <- attributeSource.owner,
+		type <- attributeSource.type,
+		multiplicity <- attributeSource.multiplicity
+	)
+}
+	

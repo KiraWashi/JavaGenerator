@@ -1,0 +1,81 @@
+[comment encoding = UTF-8 /]
+[module generateClassDiagram('http://ClassDiagram/1.0')]
+
+[comment Retourne le type Java d'un type du modèle /]
+[query public javaType(type : Type) : String = 
+    if (type.oclIsTypeOf(VoidType)) then 'void'
+    else if (type.oclIsTypeOf(StringType)) then 'String'
+    else if (type.oclIsTypeOf(IntegerType)) then 'int'
+    else if (type.oclIsTypeOf(BooleanType)) then 'boolean'
+    else type.name 
+    endif endif endif endif
+/]
+
+[comment Template pour générer la liste des interfaces implémentées par une classe /]
+[template public interfaceList(cl : Class)]
+[for (inter : Interface | cl.interfaces) before('implements ') separator(', ')][if (inter.name = 'IOperations')]generate.IOperations[else][inter.name/][/if][/for]
+[/template]
+
+[template public generateModuleBase(aModelBase : ModelBase)]
+[comment @main/]
+
+[comment Génération de l'interface IOperations une seule fois /]
+[if (aModelBase.allInterfaces->exists(i | i.name = 'IOperations'))]
+[file ('IOperations.java', false, 'UTF-8')]
+package generate;
+
+public interface IOperations {
+    void whitdraw(int val);
+    void deposit(int val);
+}
+[/file]
+[/if]
+
+[comment Génération des classes /]
+[for (cl : Class | aModelBase.allClasses)]
+[file (cl.name.concat('.java'), false, 'UTF-8')]
+package generate;
+
+import java.util.*;
+
+public class [cl.name/] [interfaceList(cl)/] {
+
+    [for (att : Attribute | cl.attributes)]
+    private [if (att.multiplicity > 1 or att.multiplicity = 0)]List<[javaType(att.type)/]> [att.name/] = new ArrayList<>();[else][javaType(att.type)/] [att.name/];[/if]
+    [/for]
+
+    [for (att : Attribute | cl.attributes)]
+    [if (att.multiplicity > 1 or att.multiplicity = 0)]
+    public List<[javaType(att.type)/]> get[att.name.toUpperFirst()/]() {
+        return [att.name/];
+    }
+    
+    public void set[att.name.toUpperFirst()/](List<[javaType(att.type)/]> [att.name/]) {
+        this.[att.name/] = [att.name/];
+    }
+    [else]
+    public [javaType(att.type)/] get[att.name.toUpperFirst()/]() {
+        return [att.name/];
+    }
+    
+    public void set[att.name.toUpperFirst()/]([javaType(att.type)/] [att.name/]) {
+        this.[att.name/] = [att.name/];
+    }
+    [/if]
+    [/for]
+
+    [if (cl.interfaces->exists(i | i.name = 'IOperations'))]
+    @Override
+    public void whitdraw(int val) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void deposit(int val) {
+        // TODO Auto-generated method stub
+    }
+    [/if]
+}
+[/file]
+[/for]
+[/template]
