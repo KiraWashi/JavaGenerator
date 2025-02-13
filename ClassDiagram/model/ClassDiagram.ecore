@@ -102,24 +102,27 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="#//Data"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement #//Var">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="parametersSize paramNotVoid"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="parametersSize" value="self.paramTypes -> size() = self.paramNames -> size()"/>
+      <details key="parametersSize" value="self.params -> size() = self.params -> size()"/>
       <details key="paramNotVoid" value="not self.paramTypes -> exists (t : Type | t.oclIsTypeOf(VoidType))"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" lowerBound="1"
         eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnVariable" eType="#//Variable"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="paramTypes" upperBound="-1"
-        eType="#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramNames" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" eType="#//Parameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="paramTypes" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paramNames" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owner" lowerBound="1" eType="#//Classifier"
         eOpposite="#//Classifier/methods"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Operation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="corps" eType="#//Operation"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//Classifier">
@@ -212,6 +215,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="AttributeReference" eSuperTypes="#//ExpressionElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="atttribute" lowerBound="1"
         eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" eSuperTypes="#//ExpressionElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+        eType="#//Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="_name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

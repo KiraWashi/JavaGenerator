@@ -2,11 +2,11 @@ package generate;
 
 import java.util.*;
 
-public class Account implements generate.IOperations {
+public class Account {
 
     private int id;
-    private int overdraft;
-    private int balance;
+    private int aDecouvert;
+    private int solde;
 
     public int getId() {
         return id;
@@ -15,28 +15,25 @@ public class Account implements generate.IOperations {
     public void setId(int id) {
         this.id = id;
     }
-    public int getOverdraft() {
-        return overdraft;
+    public int getADecouvert() {
+        return aDecouvert;
     }
     
-    public void setOverdraft(int overdraft) {
-        this.overdraft = overdraft;
+    public void setADecouvert(int aDecouvert) {
+        this.aDecouvert = aDecouvert;
     }
-    public int getBalance() {
-        return balance;
+    public int getSolde() {
+        return solde;
     }
     
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setSolde(int solde) {
+        this.solde = solde;
     }
 
-    @Override
-    public void whitdraw(int val) {
-        // TODO Auto-generated method stub
-    }
+	public void Debiter (  int somme  ) {
+        this.solde = this.solde - somme;
+	}
+	public void Crediter (  int somme  ) {
+	}
 
-    @Override
-    public void deposit(int val) {
-        // TODO Auto-generated method stub
-    }
 }

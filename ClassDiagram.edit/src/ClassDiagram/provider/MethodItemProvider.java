@@ -156,7 +156,8 @@ public class MethodItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ClassDiagramPackage.Literals.METHOD__BODY);
+			childrenFeatures.add(ClassDiagramPackage.Literals.METHOD__PARAMS);
+			childrenFeatures.add(ClassDiagramPackage.Literals.METHOD__CORPS);
 		}
 		return childrenFeatures;
 	}
@@ -215,7 +216,8 @@ public class MethodItemProvider extends NamedElementItemProvider {
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ClassDiagramPackage.METHOD__BODY:
+			case ClassDiagramPackage.METHOD__PARAMS:
+			case ClassDiagramPackage.METHOD__CORPS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -235,7 +237,12 @@ public class MethodItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ClassDiagramPackage.Literals.METHOD__BODY,
+				(ClassDiagramPackage.Literals.METHOD__PARAMS,
+				 ClassDiagramFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ClassDiagramPackage.Literals.METHOD__CORPS,
 				 ClassDiagramFactory.eINSTANCE.createOperation()));
 	}
 

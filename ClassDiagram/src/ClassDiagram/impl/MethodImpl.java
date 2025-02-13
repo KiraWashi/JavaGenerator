@@ -7,52 +7,37 @@ import ClassDiagram.ClassDiagramTables;
 import ClassDiagram.Classifier;
 import ClassDiagram.Method;
 import ClassDiagram.Operation;
+import ClassDiagram.Parameter;
 import ClassDiagram.Type;
 
 import ClassDiagram.Variable;
 import java.lang.reflect.InvocationTargetException;
-
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.ocl.pivot.evaluation.Executor;
-
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
-
 import org.eclipse.ocl.pivot.library.collection.CollectionSizeOperation;
-
+import org.eclipse.ocl.pivot.library.oclany.OclAnyOclAsSetOperation;
 import org.eclipse.ocl.pivot.library.oclany.OclAnyOclIsTypeOfOperation;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
-
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
-
 import org.eclipse.ocl.pivot.messages.PivotMessages;
-
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
-
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.InvalidValueException;
-import org.eclipse.ocl.pivot.values.OrderedSetValue;
+import org.eclipse.ocl.pivot.values.SetValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,10 +49,11 @@ import org.eclipse.ocl.pivot.values.OrderedSetValue;
  * <ul>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getReturnVariable <em>Return Variable</em>}</li>
+ *   <li>{@link ClassDiagram.impl.MethodImpl#getParams <em>Params</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getParamTypes <em>Param Types</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getParamNames <em>Param Names</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link ClassDiagram.impl.MethodImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link ClassDiagram.impl.MethodImpl#getCorps <em>Corps</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,34 +80,54 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	protected Variable returnVariable;
 
 	/**
-	 * The cached value of the '{@link #getParamTypes() <em>Param Types</em>}' reference list.
+	 * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParams()
+	 * @generated
+	 * @ordered
+	 */
+	protected Parameter params;
+
+	/**
+	 * The cached value of the '{@link #getParamTypes() <em>Param Types</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParamTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Type> paramTypes;
+	protected Type paramTypes;
 
 	/**
-	 * The cached value of the '{@link #getParamNames() <em>Param Names</em>}' attribute list.
+	 * The default value of the '{@link #getParamNames() <em>Param Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParamNames()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> paramNames;
+	protected static final String PARAM_NAMES_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+	 * The cached value of the '{@link #getParamNames() <em>Param Names</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBody()
+	 * @see #getParamNames()
 	 * @generated
 	 * @ordered
 	 */
-	protected Operation body;
+	protected String paramNames = PARAM_NAMES_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCorps() <em>Corps</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCorps()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operation corps;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,9 +234,59 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * @generated
 	 */
 	@Override
-	public EList<Type> getParamTypes() {
-		if (paramTypes == null) {
-			paramTypes = new EObjectResolvingEList<Type>(Type.class, this, ClassDiagramPackage.METHOD__PARAM_TYPES);
+	public Parameter getParams() {
+		return params;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParams(Parameter newParams, NotificationChain msgs) {
+		Parameter oldParams = params;
+		params = newParams;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__PARAMS, oldParams, newParams);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParams(Parameter newParams) {
+		if (newParams != params) {
+			NotificationChain msgs = null;
+			if (params != null)
+				msgs = ((InternalEObject)params).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__PARAMS, null, msgs);
+			if (newParams != null)
+				msgs = ((InternalEObject)newParams).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__PARAMS, null, msgs);
+			msgs = basicSetParams(newParams, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__PARAMS, newParams, newParams));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Type getParamTypes() {
+		if (paramTypes != null && paramTypes.eIsProxy()) {
+			InternalEObject oldParamTypes = (InternalEObject)paramTypes;
+			paramTypes = (Type)eResolveProxy(oldParamTypes);
+			if (paramTypes != oldParamTypes) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ClassDiagramPackage.METHOD__PARAM_TYPES, oldParamTypes, paramTypes));
+			}
 		}
 		return paramTypes;
 	}
@@ -240,12 +296,44 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Type basicGetParamTypes() {
+		return paramTypes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
-	public EList<String> getParamNames() {
-		if (paramNames == null) {
-			paramNames = new EDataTypeUniqueEList<String>(String.class, this, ClassDiagramPackage.METHOD__PARAM_NAMES);
-		}
+	public void setParamTypes(Type newParamTypes) {
+		Type oldParamTypes = paramTypes;
+		paramTypes = newParamTypes;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__PARAM_TYPES, oldParamTypes, paramTypes));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getParamNames() {
 		return paramNames;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParamNames(String newParamNames) {
+		String oldParamNames = paramNames;
+		paramNames = newParamNames;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__PARAM_NAMES, oldParamNames, paramNames));
 	}
 
 	/**
@@ -297,8 +385,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * @generated
 	 */
 	@Override
-	public Operation getBody() {
-		return body;
+	public Operation getCorps() {
+		return corps;
 	}
 
 	/**
@@ -306,11 +394,11 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBody(Operation newBody, NotificationChain msgs) {
-		Operation oldBody = body;
-		body = newBody;
+	public NotificationChain basicSetCorps(Operation newCorps, NotificationChain msgs) {
+		Operation oldCorps = corps;
+		corps = newCorps;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__BODY, oldBody, newBody);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__CORPS, oldCorps, newCorps);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -322,18 +410,18 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * @generated
 	 */
 	@Override
-	public void setBody(Operation newBody) {
-		if (newBody != body) {
+	public void setCorps(Operation newCorps) {
+		if (newCorps != corps) {
 			NotificationChain msgs = null;
-			if (body != null)
-				msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__BODY, null, msgs);
-			if (newBody != null)
-				msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__BODY, null, msgs);
-			msgs = basicSetBody(newBody, msgs);
+			if (corps != null)
+				msgs = ((InternalEObject)corps).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__CORPS, null, msgs);
+			if (newCorps != null)
+				msgs = ((InternalEObject)newCorps).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__CORPS, null, msgs);
+			msgs = basicSetCorps(newCorps, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__BODY, newBody, newBody));
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__CORPS, newCorps, newCorps));
 	}
 
 	/**
@@ -361,7 +449,6 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			 *     endif
 			 */
 			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
-			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, ClassDiagramPackage.Literals.METHOD___PARAM_NOT_VOID__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, ClassDiagramTables.INT_0).booleanValue();
 			/*@NonInvalid*/ boolean IF_le;
@@ -371,45 +458,56 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			else {
 				/*@Caught*/ Object CAUGHT_result;
 				try {
-					final /*@NonInvalid*/ List<Type> paramTypes = this.getParamTypes();
-					final /*@NonInvalid*/ OrderedSetValue BOXED_paramTypes = idResolver.createOrderedSetOfAll(ClassDiagramTables.ORD_CLSSid_Type, paramTypes);
-					/*@Thrown*/ Object accumulator = ValueUtil.FALSE_VALUE;
-					Iterator<Object> ITERATOR_t = BOXED_paramTypes.iterator();
-					/*@NonInvalid*/ Boolean exists;
-					while (true) {
-						if (!ITERATOR_t.hasNext()) {
-							if (accumulator == ValueUtil.FALSE_VALUE) {
-								exists = ValueUtil.FALSE_VALUE;
+					/*@Caught*/ Object CAUGHT_exists;
+					try {
+						final /*@NonInvalid*/ Type paramTypes = this.getParamTypes();
+						final /*@Thrown*/ SetValue oclAsSet = OclAnyOclAsSetOperation.INSTANCE.evaluate(executor, ClassDiagramTables.SET_CLSSid_Type, paramTypes);
+						/*@Thrown*/ Object accumulator = ValueUtil.FALSE_VALUE;
+						Iterator<Object> ITERATOR_t = oclAsSet.iterator();
+						/*@Thrown*/ Boolean exists;
+						while (true) {
+							if (!ITERATOR_t.hasNext()) {
+								if (accumulator == ValueUtil.FALSE_VALUE) {
+									exists = ValueUtil.FALSE_VALUE;
+								}
+								else {
+									throw (InvalidValueException)accumulator;
+								}
+								break;
 							}
-							else {
-								throw (InvalidValueException)accumulator;
+							/*@NonInvalid*/ Type t = (Type)ITERATOR_t.next();
+							/**
+							 * t.oclIsTypeOf(VoidType)
+							 */
+							final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+							final /*@NonInvalid*/ org.eclipse.ocl.pivot.Class TYP_ClassDiagram_c_c_VoidType_0 = idResolver.getClass(ClassDiagramTables.CLSSid_VoidType, null);
+							final /*@NonInvalid*/ boolean oclIsTypeOf = OclAnyOclIsTypeOfOperation.INSTANCE.evaluate(executor, t, TYP_ClassDiagram_c_c_VoidType_0).booleanValue();
+							//
+							if (oclIsTypeOf) {					// Normal successful body evaluation result
+								exists = ValueUtil.TRUE_VALUE;
+								break;														// Stop immediately
 							}
-							break;
+							else if (!oclIsTypeOf) {				// Normal unsuccessful body evaluation result
+								;															// Carry on
+							}
+							else {															// Impossible badly typed result
+								accumulator = new InvalidValueException(PivotMessages.NonBooleanBody, "exists");
+							}
 						}
-						/*@NonInvalid*/ Type t = (Type)ITERATOR_t.next();
-						/**
-						 * t.oclIsTypeOf(VoidType)
-						 */
-						final /*@NonInvalid*/ org.eclipse.ocl.pivot.Class TYP_ClassDiagram_c_c_VoidType_0 = idResolver.getClass(ClassDiagramTables.CLSSid_VoidType, null);
-						final /*@NonInvalid*/ boolean oclIsTypeOf = OclAnyOclIsTypeOfOperation.INSTANCE.evaluate(executor, t, TYP_ClassDiagram_c_c_VoidType_0).booleanValue();
-						//
-						if (oclIsTypeOf) {					// Normal successful body evaluation result
-							exists = ValueUtil.TRUE_VALUE;
-							break;														// Stop immediately
-						}
-						else if (!oclIsTypeOf) {				// Normal unsuccessful body evaluation result
-							;															// Carry on
-						}
-						else {															// Impossible badly typed result
-							accumulator = new InvalidValueException(PivotMessages.NonBooleanBody, "exists");
-						}
+						CAUGHT_exists = exists;
+					}
+					catch (Exception e) {
+						CAUGHT_exists = ValueUtil.createInvalidValue(e);
+					}
+					if (CAUGHT_exists instanceof InvalidValueException) {
+						throw (InvalidValueException)CAUGHT_exists;
 					}
 					final /*@Thrown*/ Boolean result;
-					if (exists == ValueUtil.FALSE_VALUE) {
+					if (CAUGHT_exists == ValueUtil.FALSE_VALUE) {
 						result = ValueUtil.TRUE_VALUE;
 					}
 					else {
-						if (exists == ValueUtil.TRUE_VALUE) {
+						if (CAUGHT_exists == ValueUtil.TRUE_VALUE) {
 							result = ValueUtil.FALSE_VALUE;
 						}
 						else {
@@ -448,15 +546,12 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			 *     if severity <= 0
 			 *     then true
 			 *     else
-			 *       let
-			 *         result : Boolean[1] = self.paramTypes->size() =
-			 *         self.paramNames->size()
+			 *       let result : Boolean[1] = self.params->size() = self.params->size()
 			 *       in
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
 			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
-			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, ClassDiagramPackage.Literals.METHOD___PARAMETERS_SIZE__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, ClassDiagramTables.INT_0).booleanValue();
 			/*@NonInvalid*/ boolean IF_le;
@@ -464,14 +559,18 @@ public class MethodImpl extends NamedElementImpl implements Method {
 				IF_le = true;
 			}
 			else {
-				final /*@NonInvalid*/ List<Type> paramTypes = this.getParamTypes();
-				final /*@NonInvalid*/ OrderedSetValue BOXED_paramTypes = idResolver.createOrderedSetOfAll(ClassDiagramTables.ORD_CLSSid_Type, paramTypes);
-				final /*@NonInvalid*/ IntegerValue size = CollectionSizeOperation.INSTANCE.evaluate(BOXED_paramTypes);
-				final /*@NonInvalid*/ List<String> paramNames = this.getParamNames();
-				final /*@NonInvalid*/ OrderedSetValue BOXED_paramNames = idResolver.createOrderedSetOfAll(ClassDiagramTables.ORD_PRIMid_String, paramNames);
-				final /*@NonInvalid*/ IntegerValue size_0 = CollectionSizeOperation.INSTANCE.evaluate(BOXED_paramNames);
-				final /*@NonInvalid*/ boolean result = size.equals(size_0);
-				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, ClassDiagramTables.INT_0).booleanValue();
+				/*@Caught*/ Object CAUGHT_result;
+				try {
+					final /*@NonInvalid*/ Parameter params_0 = this.getParams();
+					final /*@Thrown*/ SetValue oclAsSet_0 = OclAnyOclAsSetOperation.INSTANCE.evaluate(executor, ClassDiagramTables.SET_CLSSid_Parameter, params_0);
+					final /*@Thrown*/ IntegerValue size_0 = CollectionSizeOperation.INSTANCE.evaluate(oclAsSet_0);
+					final /*@Thrown*/ boolean result = true;
+					CAUGHT_result = result;
+				}
+				catch (Exception e) {
+					CAUGHT_result = ValueUtil.createInvalidValue(e);
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, CAUGHT_result, ClassDiagramTables.INT_0).booleanValue();
 				IF_le = logDiagnostic;
 			}
 			return IF_le;
@@ -505,10 +604,12 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ClassDiagramPackage.METHOD__PARAMS:
+				return basicSetParams(null, msgs);
 			case ClassDiagramPackage.METHOD__OWNER:
 				return basicSetOwner(null, msgs);
-			case ClassDiagramPackage.METHOD__BODY:
-				return basicSetBody(null, msgs);
+			case ClassDiagramPackage.METHOD__CORPS:
+				return basicSetCorps(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -541,14 +642,17 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
 				if (resolve) return getReturnVariable();
 				return basicGetReturnVariable();
+			case ClassDiagramPackage.METHOD__PARAMS:
+				return getParams();
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
-				return getParamTypes();
+				if (resolve) return getParamTypes();
+				return basicGetParamTypes();
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
 				return getParamNames();
 			case ClassDiagramPackage.METHOD__OWNER:
 				return getOwner();
-			case ClassDiagramPackage.METHOD__BODY:
-				return getBody();
+			case ClassDiagramPackage.METHOD__CORPS:
+				return getCorps();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -568,19 +672,20 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
 				setReturnVariable((Variable)newValue);
 				return;
+			case ClassDiagramPackage.METHOD__PARAMS:
+				setParams((Parameter)newValue);
+				return;
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
-				getParamTypes().clear();
-				getParamTypes().addAll((Collection<? extends Type>)newValue);
+				setParamTypes((Type)newValue);
 				return;
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
-				getParamNames().clear();
-				getParamNames().addAll((Collection<? extends String>)newValue);
+				setParamNames((String)newValue);
 				return;
 			case ClassDiagramPackage.METHOD__OWNER:
 				setOwner((Classifier)newValue);
 				return;
-			case ClassDiagramPackage.METHOD__BODY:
-				setBody((Operation)newValue);
+			case ClassDiagramPackage.METHOD__CORPS:
+				setCorps((Operation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -600,17 +705,20 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
 				setReturnVariable((Variable)null);
 				return;
+			case ClassDiagramPackage.METHOD__PARAMS:
+				setParams((Parameter)null);
+				return;
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
-				getParamTypes().clear();
+				setParamTypes((Type)null);
 				return;
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
-				getParamNames().clear();
+				setParamNames(PARAM_NAMES_EDEFAULT);
 				return;
 			case ClassDiagramPackage.METHOD__OWNER:
 				setOwner((Classifier)null);
 				return;
-			case ClassDiagramPackage.METHOD__BODY:
-				setBody((Operation)null);
+			case ClassDiagramPackage.METHOD__CORPS:
+				setCorps((Operation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -628,14 +736,16 @@ public class MethodImpl extends NamedElementImpl implements Method {
 				return returnType != null;
 			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
 				return returnVariable != null;
+			case ClassDiagramPackage.METHOD__PARAMS:
+				return params != null;
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
-				return paramTypes != null && !paramTypes.isEmpty();
+				return paramTypes != null;
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
-				return paramNames != null && !paramNames.isEmpty();
+				return PARAM_NAMES_EDEFAULT == null ? paramNames != null : !PARAM_NAMES_EDEFAULT.equals(paramNames);
 			case ClassDiagramPackage.METHOD__OWNER:
 				return getOwner() != null;
-			case ClassDiagramPackage.METHOD__BODY:
-				return body != null;
+			case ClassDiagramPackage.METHOD__CORPS:
+				return corps != null;
 		}
 		return super.eIsSet(featureID);
 	}

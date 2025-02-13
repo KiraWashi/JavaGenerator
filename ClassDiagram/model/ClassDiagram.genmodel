@@ -53,13 +53,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Attribute/multiplicity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Attribute/initialValue"/>
     </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//Parameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Parameter/type"/>
+    </genClasses>
     <genClasses ecoreClass="ClassDiagram.ecore#//Method">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/returnType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/returnVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/params"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/paramTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Method/paramNames"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/owner"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/corps"/>
     </genClasses>
     <genClasses ecoreClass="ClassDiagram.ecore#//Interface">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Interface/implementedBy"/>
@@ -111,6 +115,10 @@
     <genClasses ecoreClass="ClassDiagram.ecore#//AttributeReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//AttributeReference/atttribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//AttributeReference/_name"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//ParameterReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//ParameterReference/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//ParameterReference/_name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

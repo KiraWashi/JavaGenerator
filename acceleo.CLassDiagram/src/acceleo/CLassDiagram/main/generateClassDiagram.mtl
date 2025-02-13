@@ -11,25 +11,34 @@
     endif endif endif endif
 /]
 
+[query public javaOperator(op : Operator) : String = 
+    if (op.toString() = 'add') then '+'
+    else if (op.toString() = 'sub') then '-'
+    else if (op.toString() = 'mul') then '*'
+    else if (op.toString() = 'div') then '/'
+    else if (op.toString() = 'eq') then '=='
+    else if (op.toString() = 'neq') then '!='
+    else if (op.toString() = 'gt') then '>'
+    else if (op.toString() = 'lt') then '<'
+    else if (op.toString() = 'gte') then '>='
+    else if (op.toString() = 'lte') then '<='
+    else if (op.toString() = 'and') then '&&'
+    else if (op.toString() = 'or') then '||'
+    else if (op.toString() = 'not') then '!'
+    else ''
+    endif endif endif endif endif endif endif endif endif endif endif endif endif
+/]
+
 [comment Template pour générer la liste des interfaces implémentées par une classe /]
 [template public interfaceList(cl : Class)]
-[for (inter : Interface | cl.interfaces) before('implements ') separator(', ')][if (inter.name = 'IOperations')]generate.IOperations[else][inter.name/][/if][/for]
+[for (inter : Interface | cl.interfaces) before('implements ') separator(', ')][if (inter.name = 'IOperations')]IOperations[else][inter.name/][/if][/for]
 [/template]
 
 [template public generateModuleBase(aModelBase : ModelBase)]
 [comment @main/]
 
 [comment Génération de l'interface IOperations une seule fois /]
-[if (aModelBase.allInterfaces->exists(i | i.name = 'IOperations'))]
-[file ('IOperations.java', false, 'UTF-8')]
-package generate;
 
-public interface IOperations {
-    void whitdraw(int val);
-    void deposit(int val);
-}
-[/file]
-[/if]
 
 [comment Génération des classes /]
 [for (cl : Class | aModelBase.allClasses)]
@@ -37,8 +46,9 @@ public interface IOperations {
 package generate;
 
 import java.util.*;
+[comment [interfaceList(cl)/]
 
-public class [cl.name/] [interfaceList(cl)/] {
+public class [cl.name/] {
 
     [for (att : Attribute | cl.attributes)]
     private [if (att.multiplicity > 1 or att.multiplicity = 0)]List<[javaType(att.type)/]> [att.name/] = new ArrayList<>();[else][javaType(att.type)/] [att.name/];[/if]
@@ -64,17 +74,16 @@ public class [cl.name/] [interfaceList(cl)/] {
     [/if]
     [/for]
 
-    [if (cl.interfaces->exists(i | i.name = 'IOperations'))]
-    @Override
-    public void whitdraw(int val) {
-        // TODO Auto-generated method stub
-    }
+	[for (met : Method | cl.methods)]
+	public [javaType(met.returnType)/] [met.name.toUpperFirst()/] ( [for (param : Parameter | met.params) separator(', ')] [javaType(param.type)/] [param.name/] [/for] ) {
+		[for (assignement : Assignment | met.corps.contents)]
+    [if (not assignement.expression.oclIsUndefined() and assignement.expression.oclIsTypeOf(Expression))]
+        [let expr : Expression = assignement.expression.oclAsType(Expression)]
+            this.[assignement._name/] = [if (expr.left.oclIsTypeOf(AttributeReference))] this.[expr.left.oclAsType(AttributeReference)._name/] [elseif (expr.left.oclIsTypeOf(ParameterReference))] [expr.left.oclAsType(ParameterReference)._name/] [elseif (expr.left.oclIsTypeOf(VariableReference))] [expr.left.oclAsType(VariableReference)._name/] [/if] [javaOperator(expr.operator)/] [if (expr.right.oclIsTypeOf(AttributeReference))] this.[expr.right.oclAsType(AttributeReference)._name/] [elseif (expr.right.oclIsTypeOf(ParameterReference))] [expr.right.oclAsType(ParameterReference)._name/] [elseif (expr.right.oclIsTypeOf(VariableReference))] [expr.right.oclAsType(VariableReference)._name/] [/if] [/let] [/if];
+    [/for]
+	}
+	[/for]
 
-    @Override
-    public void deposit(int val) {
-        // TODO Auto-generated method stub
-    }
-    [/if]
 }
 [/file]
 [/for]

@@ -217,6 +217,11 @@ public class ExpressionItemProvider extends ExpressionElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ClassDiagramPackage.Literals.EXPRESSION__LEFT,
+				 ClassDiagramFactory.eINSTANCE.createParameterReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ClassDiagramPackage.Literals.EXPRESSION__RIGHT,
 				 ClassDiagramFactory.eINSTANCE.createExpression()));
 
@@ -239,6 +244,11 @@ public class ExpressionItemProvider extends ExpressionElementItemProvider {
 			(createChildParameter
 				(ClassDiagramPackage.Literals.EXPRESSION__RIGHT,
 				 ClassDiagramFactory.eINSTANCE.createAttributeReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ClassDiagramPackage.Literals.EXPRESSION__RIGHT,
+				 ClassDiagramFactory.eINSTANCE.createParameterReference()));
 	}
 
 	/**

@@ -21,6 +21,8 @@ import ClassDiagram.Method;
 import ClassDiagram.ModelBase;
 import ClassDiagram.Operation;
 import ClassDiagram.Operator;
+import ClassDiagram.Parameter;
+import ClassDiagram.ParameterReference;
 import ClassDiagram.StringType;
 import ClassDiagram.Variable;
 import ClassDiagram.VariableReference;
@@ -86,6 +88,7 @@ public class ClassDiagramFactoryImpl extends EFactoryImpl implements ClassDiagra
 			case ClassDiagramPackage.BOOLEAN_TYPE: return createBooleanType();
 			case ClassDiagramPackage.CLASS: return createClass();
 			case ClassDiagramPackage.ATTRIBUTE: return createAttribute();
+			case ClassDiagramPackage.PARAMETER: return createParameter();
 			case ClassDiagramPackage.METHOD: return createMethod();
 			case ClassDiagramPackage.INTERFACE: return createInterface();
 			case ClassDiagramPackage.ASSOCIATION_END: return createAssociationEnd();
@@ -100,6 +103,7 @@ public class ClassDiagramFactoryImpl extends EFactoryImpl implements ClassDiagra
 			case ClassDiagramPackage.ASSIGNMENT: return createAssignment();
 			case ClassDiagramPackage.VARIABLE_REFERENCE: return createVariableReference();
 			case ClassDiagramPackage.ATTRIBUTE_REFERENCE: return createAttributeReference();
+			case ClassDiagramPackage.PARAMETER_REFERENCE: return createParameterReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -210,6 +214,17 @@ public class ClassDiagramFactoryImpl extends EFactoryImpl implements ClassDiagra
 	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Parameter createParameter() {
+		ParameterImpl parameter = new ParameterImpl();
+		return parameter;
 	}
 
 	/**
@@ -364,6 +379,17 @@ public class ClassDiagramFactoryImpl extends EFactoryImpl implements ClassDiagra
 	public AttributeReference createAttributeReference() {
 		AttributeReferenceImpl attributeReference = new AttributeReferenceImpl();
 		return attributeReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ParameterReference createParameterReference() {
+		ParameterReferenceImpl parameterReference = new ParameterReferenceImpl();
+		return parameterReference;
 	}
 
 	/**

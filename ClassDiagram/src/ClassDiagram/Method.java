@@ -3,9 +3,7 @@
 package ClassDiagram;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,10 +16,11 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link ClassDiagram.Method#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link ClassDiagram.Method#getReturnVariable <em>Return Variable</em>}</li>
+ *   <li>{@link ClassDiagram.Method#getParams <em>Params</em>}</li>
  *   <li>{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}</li>
  *   <li>{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}</li>
  *   <li>{@link ClassDiagram.Method#getOwner <em>Owner</em>}</li>
- *   <li>{@link ClassDiagram.Method#getBody <em>Body</em>}</li>
+ *   <li>{@link ClassDiagram.Method#getCorps <em>Corps</em>}</li>
  * </ul>
  *
  * @see ClassDiagram.ClassDiagramPackage#getMethod()
@@ -74,28 +73,70 @@ public interface Method extends NamedElement {
 	void setReturnVariable(Variable value);
 
 	/**
-	 * Returns the value of the '<em><b>Param Types</b></em>' reference list.
-	 * The list contents are of type {@link ClassDiagram.Type}.
+	 * Returns the value of the '<em><b>Params</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Param Types</em>' reference list.
+	 * @return the value of the '<em>Params</em>' containment reference.
+	 * @see #setParams(Parameter)
+	 * @see ClassDiagram.ClassDiagramPackage#getMethod_Params()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Parameter getParams();
+
+	/**
+	 * Sets the value of the '{@link ClassDiagram.Method#getParams <em>Params</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Params</em>' containment reference.
+	 * @see #getParams()
+	 * @generated
+	 */
+	void setParams(Parameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Param Types</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Param Types</em>' reference.
+	 * @see #setParamTypes(Type)
 	 * @see ClassDiagram.ClassDiagramPackage#getMethod_ParamTypes()
 	 * @model
 	 * @generated
 	 */
-	EList<Type> getParamTypes();
+	Type getParamTypes();
 
 	/**
-	 * Returns the value of the '<em><b>Param Names</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Sets the value of the '{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Param Names</em>' attribute list.
+	 * @param value the new value of the '<em>Param Types</em>' reference.
+	 * @see #getParamTypes()
+	 * @generated
+	 */
+	void setParamTypes(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Param Names</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Param Names</em>' attribute.
+	 * @see #setParamNames(String)
 	 * @see ClassDiagram.ClassDiagramPackage#getMethod_ParamNames()
 	 * @model
 	 * @generated
 	 */
-	EList<String> getParamNames();
+	String getParamNames();
+
+	/**
+	 * Sets the value of the '{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Param Names</em>' attribute.
+	 * @see #getParamNames()
+	 * @generated
+	 */
+	void setParamNames(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
@@ -122,26 +163,26 @@ public interface Method extends NamedElement {
 	void setOwner(Classifier value);
 
 	/**
-	 * Returns the value of the '<em><b>Body</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Corps</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Body</em>' containment reference.
-	 * @see #setBody(Operation)
-	 * @see ClassDiagram.ClassDiagramPackage#getMethod_Body()
+	 * @return the value of the '<em>Corps</em>' containment reference.
+	 * @see #setCorps(Operation)
+	 * @see ClassDiagram.ClassDiagramPackage#getMethod_Corps()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Operation getBody();
+	Operation getCorps();
 
 	/**
-	 * Sets the value of the '{@link ClassDiagram.Method#getBody <em>Body</em>}' containment reference.
+	 * Sets the value of the '{@link ClassDiagram.Method#getCorps <em>Corps</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Body</em>' containment reference.
-	 * @see #getBody()
+	 * @param value the new value of the '<em>Corps</em>' containment reference.
+	 * @see #getCorps()
 	 * @generated
 	 */
-	void setBody(Operation value);
+	void setCorps(Operation value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,7 +195,7 @@ public interface Method extends NamedElement {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.paramTypes -&gt; size() = self.paramNames -&gt; size()'"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.params -&gt; size() = self.params -&gt; size()'"
 	 * @generated
 	 */
 	boolean parametersSize(DiagnosticChain diagnostics, Map<Object, Object> context);

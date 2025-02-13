@@ -86,6 +86,8 @@ public class ClassDiagramTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_Method = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("Method", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_ModelBase = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("ModelBase", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Operation = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("Operation", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Parameter = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("Parameter", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_ParameterReference = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("ParameterReference", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_StringType = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("StringType", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Type = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("Type", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Var = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getClassId("Var", 0);
@@ -95,7 +97,6 @@ public class ClassDiagramTables extends AbstractTables
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = ClassDiagramTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_Operator = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getEnumerationId("Operator");
 	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
-	public static final /*@NonInvalid*/ CollectionTypeId ORD_PRIMid_String = TypeId.ORDERED_SET.getSpecializedId(TypeId.STRING, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ String STR_boolean = "boolean";
 	public static final /*@NonInvalid*/ String STR_integer = "integer";
 	public static final /*@NonInvalid*/ String STR_string = "string";
@@ -104,6 +105,8 @@ public class ClassDiagramTables extends AbstractTables
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Attribute = TypeId.BAG.getSpecializedId(ClassDiagramTables.CLSSid_Attribute, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_AttributeReference = TypeId.BAG.getSpecializedId(ClassDiagramTables.CLSSid_AttributeReference, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Method = TypeId.BAG.getSpecializedId(ClassDiagramTables.CLSSid_Method, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Parameter = TypeId.BAG.getSpecializedId(ClassDiagramTables.CLSSid_Parameter, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_ParameterReference = TypeId.BAG.getSpecializedId(ClassDiagramTables.CLSSid_ParameterReference, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_VariableReference = TypeId.BAG.getSpecializedId(ClassDiagramTables.CLSSid_VariableReference, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Assignment = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Assignment, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Association = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Association, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
@@ -113,8 +116,8 @@ public class ClassDiagramTables extends AbstractTables
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Class = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Class, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Interface = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Interface, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Method = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Method, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
-	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Type = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Type, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Variable = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Variable, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Parameter = TypeId.SET.getSpecializedId(ClassDiagramTables.CLSSid_Parameter, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Type = TypeId.SET.getSpecializedId(ClassDiagramTables.CLSSid_Type, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 
 	/**
@@ -168,6 +171,8 @@ public class ClassDiagramTables extends AbstractTables
 		public static final EcoreExecutorType _NamedElement = new EcoreExecutorType(ClassDiagramPackage.Literals.NAMED_ELEMENT, PACKAGE, 0 | ExecutorType.ABSTRACT);
 		public static final EcoreExecutorType _Operation = new EcoreExecutorType(ClassDiagramPackage.Literals.OPERATION, PACKAGE, 0);
 		public static final EcoreExecutorEnumeration _Operator = new EcoreExecutorEnumeration(ClassDiagramPackage.Literals.OPERATOR, PACKAGE, 0);
+		public static final EcoreExecutorType _Parameter = new EcoreExecutorType(ClassDiagramPackage.Literals.PARAMETER, PACKAGE, 0);
+		public static final EcoreExecutorType _ParameterReference = new EcoreExecutorType(ClassDiagramPackage.Literals.PARAMETER_REFERENCE, PACKAGE, 0);
 		public static final EcoreExecutorType _StringType = new EcoreExecutorType(ClassDiagramPackage.Literals.STRING_TYPE, PACKAGE, 0);
 		public static final EcoreExecutorType _Type = new EcoreExecutorType(ClassDiagramPackage.Literals.TYPE, PACKAGE, 0 | ExecutorType.ABSTRACT);
 		public static final EcoreExecutorType _Var = new EcoreExecutorType(ClassDiagramPackage.Literals.VAR, PACKAGE, 0 | ExecutorType.ABSTRACT);
@@ -199,6 +204,8 @@ public class ClassDiagramTables extends AbstractTables
 			_NamedElement,
 			_Operation,
 			_Operator,
+			_Parameter,
+			_ParameterReference,
 			_StringType,
 			_Type,
 			_Var,
@@ -356,6 +363,17 @@ public class ClassDiagramTables extends AbstractTables
 		private static final ExecutorFragment _Operator__OclType = new ExecutorFragment(Types._Operator, OCLstdlibTables.Types._OclType);
 		private static final ExecutorFragment _Operator__Operator = new ExecutorFragment(Types._Operator, ClassDiagramTables.Types._Operator);
 
+		private static final ExecutorFragment _Parameter__NamedElement = new ExecutorFragment(Types._Parameter, ClassDiagramTables.Types._NamedElement);
+		private static final ExecutorFragment _Parameter__OclAny = new ExecutorFragment(Types._Parameter, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _Parameter__OclElement = new ExecutorFragment(Types._Parameter, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _Parameter__Parameter = new ExecutorFragment(Types._Parameter, ClassDiagramTables.Types._Parameter);
+		private static final ExecutorFragment _Parameter__Var = new ExecutorFragment(Types._Parameter, ClassDiagramTables.Types._Var);
+
+		private static final ExecutorFragment _ParameterReference__ExpressionElement = new ExecutorFragment(Types._ParameterReference, ClassDiagramTables.Types._ExpressionElement);
+		private static final ExecutorFragment _ParameterReference__OclAny = new ExecutorFragment(Types._ParameterReference, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _ParameterReference__OclElement = new ExecutorFragment(Types._ParameterReference, OCLstdlibTables.Types._OclElement);
+		private static final ExecutorFragment _ParameterReference__ParameterReference = new ExecutorFragment(Types._ParameterReference, ClassDiagramTables.Types._ParameterReference);
+
 		private static final ExecutorFragment _StringType__DataType = new ExecutorFragment(Types._StringType, ClassDiagramTables.Types._DataType);
 		private static final ExecutorFragment _StringType__NamedElement = new ExecutorFragment(Types._StringType, ClassDiagramTables.Types._NamedElement);
 		private static final ExecutorFragment _StringType__OclAny = new ExecutorFragment(Types._StringType, OCLstdlibTables.Types._OclAny);
@@ -510,12 +528,13 @@ public class ClassDiagramTables extends AbstractTables
 		public static final ExecutorProperty _Interface__implementedBy = new EcoreExecutorProperty(ClassDiagramPackage.Literals.INTERFACE__IMPLEMENTED_BY, Types._Interface, 0);
 		public static final ExecutorProperty _Interface__ModelBase__allInterfaces = new ExecutorPropertyWithImplementation("ModelBase", Types._Interface, 1, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.MODEL_BASE__ALL_INTERFACES));
 
-		public static final ExecutorProperty _Method__body = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__BODY, Types._Method, 0);
+		public static final ExecutorProperty _Method__corps = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__CORPS, Types._Method, 0);
 		public static final ExecutorProperty _Method__owner = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__OWNER, Types._Method, 1);
 		public static final ExecutorProperty _Method__paramNames = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__PARAM_NAMES, Types._Method, 2);
 		public static final ExecutorProperty _Method__paramTypes = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__PARAM_TYPES, Types._Method, 3);
-		public static final ExecutorProperty _Method__returnType = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__RETURN_TYPE, Types._Method, 4);
-		public static final ExecutorProperty _Method__returnVariable = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__RETURN_VARIABLE, Types._Method, 5);
+		public static final ExecutorProperty _Method__params = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__PARAMS, Types._Method, 4);
+		public static final ExecutorProperty _Method__returnType = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__RETURN_TYPE, Types._Method, 5);
+		public static final ExecutorProperty _Method__returnVariable = new EcoreExecutorProperty(ClassDiagramPackage.Literals.METHOD__RETURN_VARIABLE, Types._Method, 6);
 
 		public static final ExecutorProperty _ModelBase__allAssociations = new EcoreExecutorProperty(ClassDiagramPackage.Literals.MODEL_BASE__ALL_ASSOCIATIONS, Types._ModelBase, 0);
 		public static final ExecutorProperty _ModelBase__allClasses = new EcoreExecutorProperty(ClassDiagramPackage.Literals.MODEL_BASE__ALL_CLASSES, Types._ModelBase, 1);
@@ -530,13 +549,21 @@ public class ClassDiagramTables extends AbstractTables
 		public static final ExecutorProperty _Operation__contents = new EcoreExecutorProperty(ClassDiagramPackage.Literals.OPERATION__CONTENTS, Types._Operation, 0);
 		public static final ExecutorProperty _Operation__localVariables = new EcoreExecutorProperty(ClassDiagramPackage.Literals.OPERATION__LOCAL_VARIABLES, Types._Operation, 1);
 		public static final ExecutorProperty _Operation__name = new EcoreExecutorProperty(ClassDiagramPackage.Literals.OPERATION__NAME, Types._Operation, 2);
-		public static final ExecutorProperty _Operation__Method__body = new ExecutorPropertyWithImplementation("Method", Types._Operation, 3, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__BODY));
+		public static final ExecutorProperty _Operation__Method__corps = new ExecutorPropertyWithImplementation("Method", Types._Operation, 3, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__CORPS));
+
+		public static final ExecutorProperty _Parameter__type = new EcoreExecutorProperty(ClassDiagramPackage.Literals.PARAMETER__TYPE, Types._Parameter, 0);
+		public static final ExecutorProperty _Parameter__Method__params = new ExecutorPropertyWithImplementation("Method", Types._Parameter, 1, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__PARAMS));
+		public static final ExecutorProperty _Parameter__ParameterReference__parameter = new ExecutorPropertyWithImplementation("ParameterReference", Types._Parameter, 2, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.PARAMETER_REFERENCE__PARAMETER));
+
+		public static final ExecutorProperty _ParameterReference___name = new EcoreExecutorProperty(ClassDiagramPackage.Literals.PARAMETER_REFERENCE__NAME, Types._ParameterReference, 0);
+		public static final ExecutorProperty _ParameterReference__parameter = new EcoreExecutorProperty(ClassDiagramPackage.Literals.PARAMETER_REFERENCE__PARAMETER, Types._ParameterReference, 1);
 
 		public static final ExecutorProperty _StringType__ModelBase__stringT = new ExecutorPropertyWithImplementation("ModelBase", Types._StringType, 0, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.MODEL_BASE__STRING_T));
 
 		public static final ExecutorProperty _Type__Attribute__type = new ExecutorPropertyWithImplementation("Attribute", Types._Type, 0, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.ATTRIBUTE__TYPE));
 		public static final ExecutorProperty _Type__Method__paramTypes = new ExecutorPropertyWithImplementation("Method", Types._Type, 1, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__PARAM_TYPES));
 		public static final ExecutorProperty _Type__Method__returnType = new ExecutorPropertyWithImplementation("Method", Types._Type, 2, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__RETURN_TYPE));
+		public static final ExecutorProperty _Type__Parameter__type = new ExecutorPropertyWithImplementation("Parameter", Types._Type, 3, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.PARAMETER__TYPE));
 
 		public static final ExecutorProperty _Var__Assignment__variable = new ExecutorPropertyWithImplementation("Assignment", Types._Var, 0, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.ASSIGNMENT__VARIABLE));
 
@@ -787,6 +814,25 @@ public class ClassDiagramTables extends AbstractTables
 			};
 		private static final int /*@NonNull*/ [] __Operator = { 1,1,1,1,1 };
 
+		private static final ExecutorFragment /*@NonNull*/ [] _Parameter =
+			{
+				Fragments._Parameter__OclAny /* 0 */,
+				Fragments._Parameter__OclElement /* 1 */,
+				Fragments._Parameter__NamedElement /* 2 */,
+				Fragments._Parameter__Var /* 2 */,
+				Fragments._Parameter__Parameter /* 3 */
+			};
+		private static final int /*@NonNull*/ [] __Parameter = { 1,1,2,1 };
+
+		private static final ExecutorFragment /*@NonNull*/ [] _ParameterReference =
+			{
+				Fragments._ParameterReference__OclAny /* 0 */,
+				Fragments._ParameterReference__OclElement /* 1 */,
+				Fragments._ParameterReference__ExpressionElement /* 2 */,
+				Fragments._ParameterReference__ParameterReference /* 3 */
+			};
+		private static final int /*@NonNull*/ [] __ParameterReference = { 1,1,1,1 };
+
 		private static final ExecutorFragment /*@NonNull*/ [] _StringType =
 			{
 				Fragments._StringType__OclAny /* 0 */,
@@ -871,6 +917,8 @@ public class ClassDiagramTables extends AbstractTables
 			Types._NamedElement.initFragments(_NamedElement, __NamedElement);
 			Types._Operation.initFragments(_Operation, __Operation);
 			Types._Operator.initFragments(_Operator, __Operator);
+			Types._Parameter.initFragments(_Parameter, __Parameter);
+			Types._ParameterReference.initFragments(_ParameterReference, __ParameterReference);
 			Types._StringType.initFragments(_StringType, __StringType);
 			Types._Type.initFragments(_Type, __Type);
 			Types._Var.initFragments(_Var, __Var);
@@ -1693,6 +1741,75 @@ public class ClassDiagramTables extends AbstractTables
 			OCLstdlibTables.Operations._OclType__conformsTo /* conformsTo(OclType[?]) */
 		};
 
+		private static final ExecutorOperation /*@NonNull*/ [] _Parameter__Parameter = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Parameter__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Parameter__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _Parameter__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
+			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
+			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _Parameter__Var = {};
+
+		private static final ExecutorOperation /*@NonNull*/ [] _ParameterReference__ParameterReference = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _ParameterReference__ExpressionElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _ParameterReference__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _ParameterReference__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances(Integer[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclBase /* oclBase() */,
+			OCLstdlibTables.Operations._OclElement__1_oclBase /* oclBase(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclExtension /* oclExtension(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__0_oclExtensions /* oclExtensions() */,
+			OCLstdlibTables.Operations._OclElement__1_oclExtensions /* oclExtensions(OclStereotype[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+
 		private static final ExecutorOperation /*@NonNull*/ [] _StringType__StringType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _StringType__DataType = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _StringType__NamedElement = {};
@@ -2030,6 +2147,17 @@ public class ClassDiagramTables extends AbstractTables
 			Fragments._Operator__OclType.initOperations(_Operator__OclType);
 			Fragments._Operator__Operator.initOperations(_Operator__Operator);
 
+			Fragments._Parameter__NamedElement.initOperations(_Parameter__NamedElement);
+			Fragments._Parameter__OclAny.initOperations(_Parameter__OclAny);
+			Fragments._Parameter__OclElement.initOperations(_Parameter__OclElement);
+			Fragments._Parameter__Parameter.initOperations(_Parameter__Parameter);
+			Fragments._Parameter__Var.initOperations(_Parameter__Var);
+
+			Fragments._ParameterReference__ExpressionElement.initOperations(_ParameterReference__ExpressionElement);
+			Fragments._ParameterReference__OclAny.initOperations(_ParameterReference__OclAny);
+			Fragments._ParameterReference__OclElement.initOperations(_ParameterReference__OclElement);
+			Fragments._ParameterReference__ParameterReference.initOperations(_ParameterReference__ParameterReference);
+
 			Fragments._StringType__DataType.initOperations(_StringType__DataType);
 			Fragments._StringType__NamedElement.initOperations(_StringType__NamedElement);
 			Fragments._StringType__OclAny.initOperations(_StringType__OclAny);
@@ -2214,13 +2342,14 @@ public class ClassDiagramTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Method = {
-			ClassDiagramTables.Properties._Method__body,
+			ClassDiagramTables.Properties._Method__corps,
 			ClassDiagramTables.Properties._NamedElement__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			ClassDiagramTables.Properties._Method__owner,
 			ClassDiagramTables.Properties._Method__paramNames,
 			ClassDiagramTables.Properties._Method__paramTypes,
+			ClassDiagramTables.Properties._Method__params,
 			ClassDiagramTables.Properties._Method__returnType,
 			ClassDiagramTables.Properties._Method__returnVariable
 		};
@@ -2254,6 +2383,20 @@ public class ClassDiagramTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Operator = {
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
+		};
+
+		private static final ExecutorProperty /*@NonNull*/ [] _Parameter = {
+			ClassDiagramTables.Properties._NamedElement__name,
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents,
+			ClassDiagramTables.Properties._Parameter__type
+		};
+
+		private static final ExecutorProperty /*@NonNull*/ [] _ParameterReference = {
+			ClassDiagramTables.Properties._ParameterReference___name,
+			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents,
+			ClassDiagramTables.Properties._ParameterReference__parameter
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _StringType = {
@@ -2320,6 +2463,8 @@ public class ClassDiagramTables extends AbstractTables
 			Fragments._NamedElement__NamedElement.initProperties(_NamedElement);
 			Fragments._Operation__Operation.initProperties(_Operation);
 			Fragments._Operator__Operator.initProperties(_Operator);
+			Fragments._Parameter__Parameter.initProperties(_Parameter);
+			Fragments._ParameterReference__ParameterReference.initProperties(_ParameterReference);
 			Fragments._StringType__StringType.initProperties(_StringType);
 			Fragments._Type__Type.initProperties(_Type);
 			Fragments._Var__Var.initProperties(_Var);

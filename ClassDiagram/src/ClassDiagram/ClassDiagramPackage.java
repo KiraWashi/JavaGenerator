@@ -737,6 +737,52 @@ public interface ClassDiagramPackage extends EPackage {
 	int ATTRIBUTE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link ClassDiagram.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ClassDiagram.impl.ParameterImpl
+	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__NAME = NAMED_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ClassDiagram.impl.MethodImpl <em>Method</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,7 +790,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getMethod()
 	 * @generated
 	 */
-	int METHOD = 11;
+	int METHOD = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -774,22 +820,31 @@ public interface ClassDiagramPackage extends EPackage {
 	int METHOD__RETURN_VARIABLE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Param Types</b></em>' reference list.
+	 * The feature id for the '<em><b>Params</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__PARAM_TYPES = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int METHOD__PARAMS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Param Names</b></em>' attribute list.
+	 * The feature id for the '<em><b>Param Types</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__PARAM_NAMES = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int METHOD__PARAM_TYPES = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Param Names</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__PARAM_NAMES = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -798,16 +853,16 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__OWNER = NAMED_ELEMENT_FEATURE_COUNT + 4;
+	int METHOD__OWNER = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Body</b></em>' containment reference.
+	 * The feature id for the '<em><b>Corps</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD__BODY = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int METHOD__CORPS = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Method</em>' class.
@@ -816,7 +871,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int METHOD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int METHOD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Param Not Void</em>' operation.
@@ -853,7 +908,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getInterface()
 	 * @generated
 	 */
-	int INTERFACE = 12;
+	int INTERFACE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -935,7 +990,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getAssociationEnd()
 	 * @generated
 	 */
-	int ASSOCIATION_END = 13;
+	int ASSOCIATION_END = 14;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1008,7 +1063,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getAssociation()
 	 * @generated
 	 */
-	int ASSOCIATION = 14;
+	int ASSOCIATION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1055,7 +1110,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getExpressionElement()
 	 * @generated
 	 */
-	int EXPRESSION_ELEMENT = 15;
+	int EXPRESSION_ELEMENT = 16;
 
 	/**
 	 * The number of structural features of the '<em>Expression Element</em>' class.
@@ -1083,7 +1138,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getVar()
 	 * @generated
 	 */
-	int VAR = 16;
+	int VAR = 17;
 
 	/**
 	 * The number of structural features of the '<em>Var</em>' class.
@@ -1111,7 +1166,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 17;
+	int EXPRESSION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1175,7 +1230,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getData()
 	 * @generated
 	 */
-	int DATA = 18;
+	int DATA = 19;
 
 	/**
 	 * The number of structural features of the '<em>Data</em>' class.
@@ -1203,7 +1258,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getBooleanData()
 	 * @generated
 	 */
-	int BOOLEAN_DATA = 19;
+	int BOOLEAN_DATA = 20;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1240,7 +1295,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getIntegerData()
 	 * @generated
 	 */
-	int INTEGER_DATA = 20;
+	int INTEGER_DATA = 21;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1277,7 +1332,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 21;
+	int VARIABLE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1323,7 +1378,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getBooleanVariable()
 	 * @generated
 	 */
-	int BOOLEAN_VARIABLE = 22;
+	int BOOLEAN_VARIABLE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1369,7 +1424,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getIntegerVariable()
 	 * @generated
 	 */
-	int INTEGER_VARIABLE = 23;
+	int INTEGER_VARIABLE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1415,7 +1470,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getOperation()
 	 * @generated
 	 */
-	int OPERATION = 24;
+	int OPERATION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
@@ -1470,7 +1525,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getAssignment()
 	 * @generated
 	 */
-	int ASSIGNMENT = 25;
+	int ASSIGNMENT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1525,7 +1580,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getVariableReference()
 	 * @generated
 	 */
-	int VARIABLE_REFERENCE = 26;
+	int VARIABLE_REFERENCE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -1571,7 +1626,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getAttributeReference()
 	 * @generated
 	 */
-	int ATTRIBUTE_REFERENCE = 27;
+	int ATTRIBUTE_REFERENCE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Atttribute</b></em>' reference.
@@ -1610,6 +1665,52 @@ public interface ClassDiagramPackage extends EPackage {
 	int ATTRIBUTE_REFERENCE_OPERATION_COUNT = EXPRESSION_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ClassDiagram.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ClassDiagram.impl.ParameterReferenceImpl
+	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getParameterReference()
+	 * @generated
+	 */
+	int PARAMETER_REFERENCE = 29;
+
+	/**
+	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE__PARAMETER = EXPRESSION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE__NAME = EXPRESSION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_FEATURE_COUNT = EXPRESSION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Parameter Reference</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_REFERENCE_OPERATION_COUNT = EXPRESSION_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ClassDiagram.Operator <em>Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1617,7 +1718,7 @@ public interface ClassDiagramPackage extends EPackage {
 	 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getOperator()
 	 * @generated
 	 */
-	int OPERATOR = 28;
+	int OPERATOR = 30;
 
 
 	/**
@@ -1977,6 +2078,27 @@ public interface ClassDiagramPackage extends EPackage {
 	EOperation getAttribute__AttributeNotVoid__DiagnosticChain_Map();
 
 	/**
+	 * Returns the meta object for class '{@link ClassDiagram.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter</em>'.
+	 * @see ClassDiagram.Parameter
+	 * @generated
+	 */
+	EClass getParameter();
+
+	/**
+	 * Returns the meta object for the reference '{@link ClassDiagram.Parameter#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see ClassDiagram.Parameter#getType()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_Type();
+
+	/**
 	 * Returns the meta object for class '{@link ClassDiagram.Method <em>Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2009,10 +2131,21 @@ public interface ClassDiagramPackage extends EPackage {
 	EReference getMethod_ReturnVariable();
 
 	/**
-	 * Returns the meta object for the reference list '{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}'.
+	 * Returns the meta object for the containment reference '{@link ClassDiagram.Method#getParams <em>Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Param Types</em>'.
+	 * @return the meta object for the containment reference '<em>Params</em>'.
+	 * @see ClassDiagram.Method#getParams()
+	 * @see #getMethod()
+	 * @generated
+	 */
+	EReference getMethod_Params();
+
+	/**
+	 * Returns the meta object for the reference '{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Param Types</em>'.
 	 * @see ClassDiagram.Method#getParamTypes()
 	 * @see #getMethod()
 	 * @generated
@@ -2020,10 +2153,10 @@ public interface ClassDiagramPackage extends EPackage {
 	EReference getMethod_ParamTypes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}'.
+	 * Returns the meta object for the attribute '{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Param Names</em>'.
+	 * @return the meta object for the attribute '<em>Param Names</em>'.
 	 * @see ClassDiagram.Method#getParamNames()
 	 * @see #getMethod()
 	 * @generated
@@ -2042,15 +2175,15 @@ public interface ClassDiagramPackage extends EPackage {
 	EReference getMethod_Owner();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ClassDiagram.Method#getBody <em>Body</em>}'.
+	 * Returns the meta object for the containment reference '{@link ClassDiagram.Method#getCorps <em>Corps</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Body</em>'.
-	 * @see ClassDiagram.Method#getBody()
+	 * @return the meta object for the containment reference '<em>Corps</em>'.
+	 * @see ClassDiagram.Method#getCorps()
 	 * @see #getMethod()
 	 * @generated
 	 */
-	EReference getMethod_Body();
+	EReference getMethod_Corps();
 
 	/**
 	 * Returns the meta object for the '{@link ClassDiagram.Method#paramNotVoid(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Param Not Void</em>}' operation.
@@ -2507,6 +2640,38 @@ public interface ClassDiagramPackage extends EPackage {
 	EAttribute getAttributeReference__name();
 
 	/**
+	 * Returns the meta object for class '{@link ClassDiagram.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Parameter Reference</em>'.
+	 * @see ClassDiagram.ParameterReference
+	 * @generated
+	 */
+	EClass getParameterReference();
+
+	/**
+	 * Returns the meta object for the reference '{@link ClassDiagram.ParameterReference#getParameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Parameter</em>'.
+	 * @see ClassDiagram.ParameterReference#getParameter()
+	 * @see #getParameterReference()
+	 * @generated
+	 */
+	EReference getParameterReference_Parameter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ClassDiagram.ParameterReference#get_name <em>name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>name</em>'.
+	 * @see ClassDiagram.ParameterReference#get_name()
+	 * @see #getParameterReference()
+	 * @generated
+	 */
+	EAttribute getParameterReference__name();
+
+	/**
 	 * Returns the meta object for enum '{@link ClassDiagram.Operator <em>Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2834,6 +2999,24 @@ public interface ClassDiagramPackage extends EPackage {
 		EOperation ATTRIBUTE___ATTRIBUTE_NOT_VOID__DIAGNOSTICCHAIN_MAP = eINSTANCE.getAttribute__AttributeNotVoid__DiagnosticChain_Map();
 
 		/**
+		 * The meta object literal for the '{@link ClassDiagram.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ClassDiagram.impl.ParameterImpl
+		 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getParameter()
+		 * @generated
+		 */
+		EClass PARAMETER = eINSTANCE.getParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+		/**
 		 * The meta object literal for the '{@link ClassDiagram.impl.MethodImpl <em>Method</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2860,7 +3043,15 @@ public interface ClassDiagramPackage extends EPackage {
 		EReference METHOD__RETURN_VARIABLE = eINSTANCE.getMethod_ReturnVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Param Types</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference METHOD__PARAMS = eINSTANCE.getMethod_Params();
+
+		/**
+		 * The meta object literal for the '<em><b>Param Types</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2868,7 +3059,7 @@ public interface ClassDiagramPackage extends EPackage {
 		EReference METHOD__PARAM_TYPES = eINSTANCE.getMethod_ParamTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Param Names</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Param Names</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2884,12 +3075,12 @@ public interface ClassDiagramPackage extends EPackage {
 		EReference METHOD__OWNER = eINSTANCE.getMethod_Owner();
 
 		/**
-		 * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Corps</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference METHOD__BODY = eINSTANCE.getMethod_Body();
+		EReference METHOD__CORPS = eINSTANCE.getMethod_Corps();
 
 		/**
 		 * The meta object literal for the '<em><b>Param Not Void</b></em>' operation.
@@ -3266,6 +3457,32 @@ public interface ClassDiagramPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE_REFERENCE__NAME = eINSTANCE.getAttributeReference__name();
+
+		/**
+		 * The meta object literal for the '{@link ClassDiagram.impl.ParameterReferenceImpl <em>Parameter Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ClassDiagram.impl.ParameterReferenceImpl
+		 * @see ClassDiagram.impl.ClassDiagramPackageImpl#getParameterReference()
+		 * @generated
+		 */
+		EClass PARAMETER_REFERENCE = eINSTANCE.getParameterReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_REFERENCE__PARAMETER = eINSTANCE.getParameterReference_Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PARAMETER_REFERENCE__NAME = eINSTANCE.getParameterReference__name();
 
 		/**
 		 * The meta object literal for the '{@link ClassDiagram.Operator <em>Operator</em>}' enum.

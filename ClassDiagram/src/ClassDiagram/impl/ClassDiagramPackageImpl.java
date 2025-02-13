@@ -26,6 +26,8 @@ import ClassDiagram.ModelBase;
 import ClassDiagram.NamedElement;
 import ClassDiagram.Operation;
 import ClassDiagram.Operator;
+import ClassDiagram.Parameter;
+import ClassDiagram.ParameterReference;
 import ClassDiagram.StringType;
 import ClassDiagram.Type;
 import ClassDiagram.Var;
@@ -129,6 +131,13 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	private EClass attributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,6 +257,13 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	private EClass attributeReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass parameterReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -673,6 +689,26 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	@Override
+	public EClass getParameter() {
+		return parameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameter_Type() {
+		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMethod() {
 		return methodEClass;
 	}
@@ -703,7 +739,7 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	@Override
-	public EReference getMethod_ParamTypes() {
+	public EReference getMethod_Params() {
 		return (EReference)methodEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -713,8 +749,18 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	@Override
+	public EReference getMethod_ParamTypes() {
+		return (EReference)methodEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getMethod_ParamNames() {
-		return (EAttribute)methodEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)methodEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -724,7 +770,7 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 */
 	@Override
 	public EReference getMethod_Owner() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(4);
+		return (EReference)methodEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -733,8 +779,8 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	@Override
-	public EReference getMethod_Body() {
-		return (EReference)methodEClass.getEStructuralFeatures().get(5);
+	public EReference getMethod_Corps() {
+		return (EReference)methodEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1173,6 +1219,36 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 	 * @generated
 	 */
 	@Override
+	public EClass getParameterReference() {
+		return parameterReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getParameterReference_Parameter() {
+		return (EReference)parameterReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getParameterReference__name() {
+		return (EAttribute)parameterReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getOperator() {
 		return operatorEEnum;
 	}
@@ -1251,13 +1327,17 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		createEReference(attributeEClass, ATTRIBUTE__INITIAL_VALUE);
 		createEOperation(attributeEClass, ATTRIBUTE___ATTRIBUTE_NOT_VOID__DIAGNOSTICCHAIN_MAP);
 
+		parameterEClass = createEClass(PARAMETER);
+		createEReference(parameterEClass, PARAMETER__TYPE);
+
 		methodEClass = createEClass(METHOD);
 		createEReference(methodEClass, METHOD__RETURN_TYPE);
 		createEReference(methodEClass, METHOD__RETURN_VARIABLE);
+		createEReference(methodEClass, METHOD__PARAMS);
 		createEReference(methodEClass, METHOD__PARAM_TYPES);
 		createEAttribute(methodEClass, METHOD__PARAM_NAMES);
 		createEReference(methodEClass, METHOD__OWNER);
-		createEReference(methodEClass, METHOD__BODY);
+		createEReference(methodEClass, METHOD__CORPS);
 		createEOperation(methodEClass, METHOD___PARAM_NOT_VOID__DIAGNOSTICCHAIN_MAP);
 		createEOperation(methodEClass, METHOD___PARAMETERS_SIZE__DIAGNOSTICCHAIN_MAP);
 
@@ -1318,6 +1398,10 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		createEReference(attributeReferenceEClass, ATTRIBUTE_REFERENCE__ATTTRIBUTE);
 		createEAttribute(attributeReferenceEClass, ATTRIBUTE_REFERENCE__NAME);
 
+		parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
+		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER);
+		createEAttribute(parameterReferenceEClass, PARAMETER_REFERENCE__NAME);
+
 		// Create enums
 		operatorEEnum = createEEnum(OPERATOR);
 	}
@@ -1360,6 +1444,8 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		classEClass.getESuperTypes().add(this.getClassifier());
 		attributeEClass.getESuperTypes().add(this.getNamedElement());
 		attributeEClass.getESuperTypes().add(this.getVar());
+		parameterEClass.getESuperTypes().add(this.getNamedElement());
+		parameterEClass.getESuperTypes().add(this.getVar());
 		methodEClass.getESuperTypes().add(this.getNamedElement());
 		interfaceEClass.getESuperTypes().add(this.getClassifier());
 		associationEndEClass.getESuperTypes().add(this.getNamedElement());
@@ -1373,6 +1459,7 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		integerVariableEClass.getESuperTypes().add(this.getVariable());
 		variableReferenceEClass.getESuperTypes().add(this.getExpressionElement());
 		attributeReferenceEClass.getESuperTypes().add(this.getExpressionElement());
+		parameterReferenceEClass.getESuperTypes().add(this.getExpressionElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelBaseEClass, ModelBase.class, "ModelBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1476,13 +1563,17 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameter_Type(), this.getType(), null, "type", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(methodEClass, Method.class, "Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMethod_ReturnType(), this.getType(), null, "returnType", null, 1, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_ReturnVariable(), this.getVariable(), null, "returnVariable", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_ParamTypes(), this.getType(), null, "paramTypes", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMethod_ParamNames(), ecorePackage.getEString(), "paramNames", null, 0, -1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Params(), this.getParameter(), null, "params", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_ParamTypes(), this.getType(), null, "paramTypes", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMethod_ParamNames(), ecorePackage.getEString(), "paramNames", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMethod_Owner(), this.getClassifier(), this.getClassifier_Methods(), "owner", null, 1, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMethod_Body(), this.getOperation(), null, "body", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMethod_Corps(), this.getOperation(), null, "corps", null, 0, 1, Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getMethod__ParamNotVoid__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "paramNotVoid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1566,6 +1657,10 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		initEClass(attributeReferenceEClass, AttributeReference.class, "AttributeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAttributeReference_Atttribute(), this.getAttribute(), null, "atttribute", null, 1, 1, AttributeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeReference__name(), ecorePackage.getEString(), "_name", null, 0, 1, AttributeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterReference_Parameter(), this.getParameter(), null, "parameter", null, 1, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameterReference__name(), ecorePackage.getEString(), "_name", null, 0, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(operatorEEnum, Operator.class, "Operator");
@@ -1724,7 +1819,7 @@ public class ClassDiagramPackageImpl extends EPackageImpl implements ClassDiagra
 		  (getMethod__ParametersSize__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
-			   "body", "self.paramTypes -> size() = self.paramNames -> size()"
+			   "body", "self.params -> size() = self.params -> size()"
 		   });
 		addAnnotation
 		  (getInterface__NoAttributeInInterface__DiagnosticChain_Map(),

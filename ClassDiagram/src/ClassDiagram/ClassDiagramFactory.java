@@ -85,6 +85,15 @@ public interface ClassDiagramFactory extends EFactory {
 	Attribute createAttribute();
 
 	/**
+	 * Returns a new object of class '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter</em>'.
+	 * @generated
+	 */
+	Parameter createParameter();
+
+	/**
 	 * Returns a new object of class '<em>Method</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +218,15 @@ public interface ClassDiagramFactory extends EFactory {
 	 * @generated
 	 */
 	AttributeReference createAttributeReference();
+
+	/**
+	 * Returns a new object of class '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parameter Reference</em>'.
+	 * @generated
+	 */
+	ParameterReference createParameterReference();
 
 	/**
 	 * Returns the package supported by this factory.

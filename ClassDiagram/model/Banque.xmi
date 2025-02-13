@@ -36,37 +36,38 @@
     <methods
         name="debiter"
         returnType="//@voidT"
-        paramTypes="//@intT">
-      <paramNames>val</paramNames>
-      <body>
+        paramTypes="//@intT"
+        paramNames="val">
+      <params
+          name="somme"
+          type="//@intT"/>
+      <corps>
         <contents
-            variable="//@allClasses.0/@methods.0/@body/@localVariables.0"
-            _name="A1">
+            variable="//@allClasses.0/@attributes.2"
+            _name="solde">
           <expression
-              xsi:type="ClassDiagram:Expression">
+              xsi:type="ClassDiagram:Expression"
+              operator="sub">
             <left
                 xsi:type="ClassDiagram:AttributeReference"
-                atttribute="//@allClasses.0/@attributes.2"/>
+                atttribute="//@allClasses.0/@attributes.2"
+                _name="solde"/>
             <right
-                xsi:type="ClassDiagram:VariableReference"
-                variable="//@allClasses.0/@methods.0/@body/@localVariables.0"
-                _name="a1"/>
+                xsi:type="ClassDiagram:ParameterReference"
+                parameter="//@allClasses.0/@methods.0/@params"
+                _name="somme"/>
           </expression>
         </contents>
-        <localVariables
-            xsi:type="ClassDiagram:IntegerVariable"
-            name="A1">
-          <value
-              xsi:type="ClassDiagram:IntegerData"
-              value="5"/>
-        </localVariables>
-      </body>
+      </corps>
     </methods>
     <methods
         name="crediter"
         returnType="//@voidT"
-        paramTypes="//@intT">
-      <paramNames>val</paramNames>
+        paramTypes="//@intT"
+        paramNames="val">
+      <params
+          name="somme"
+          type="//@intT"/>
     </methods>
   </allClasses>
   <allClasses
@@ -86,9 +87,8 @@
     <methods
         name="changeAddr"
         returnType="//@voidT"
-        paramTypes="//@stringT">
-      <paramNames>addr</paramNames>
-    </methods>
+        paramTypes="//@stringT"
+        paramNames="addr"/>
   </allClasses>
   <allInterfaces
       name="IOperations"
@@ -96,21 +96,18 @@
     <methods
         name="debiter"
         returnType="//@voidT"
-        paramTypes="//@intT">
-      <paramNames>val</paramNames>
-    </methods>
+        paramTypes="//@intT"
+        paramNames="val"/>
     <methods
         name="crediter"
         returnType="//@voidT"
-        paramTypes="//@intT">
-      <paramNames>val</paramNames>
-    </methods>
+        paramTypes="//@intT"
+        paramNames="val"/>
     <methods
         name="TestMethodeVide"
         returnType="//@intT"
-        paramTypes="//@intT">
-      <paramNames>a</paramNames>
-    </methods>
+        paramTypes="//@intT"
+        paramNames="a"/>
   </allInterfaces>
   <allAssociations
       name="">

@@ -24,6 +24,8 @@ import ClassDiagram.Method;
 import ClassDiagram.ModelBase;
 import ClassDiagram.NamedElement;
 import ClassDiagram.Operation;
+import ClassDiagram.Parameter;
+import ClassDiagram.ParameterReference;
 import ClassDiagram.StringType;
 import ClassDiagram.Type;
 import ClassDiagram.Var;
@@ -181,6 +183,14 @@ public class ClassDiagramSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ClassDiagramPackage.PARAMETER: {
+				Parameter parameter = (Parameter)theEObject;
+				T result = caseParameter(parameter);
+				if (result == null) result = caseNamedElement(parameter);
+				if (result == null) result = caseVar(parameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ClassDiagramPackage.METHOD: {
 				Method method = (Method)theEObject;
 				T result = caseMethod(method);
@@ -299,6 +309,13 @@ public class ClassDiagramSwitch<T> extends Switch<T> {
 				AttributeReference attributeReference = (AttributeReference)theEObject;
 				T result = caseAttributeReference(attributeReference);
 				if (result == null) result = caseExpressionElement(attributeReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ClassDiagramPackage.PARAMETER_REFERENCE: {
+				ParameterReference parameterReference = (ParameterReference)theEObject;
+				T result = caseParameterReference(parameterReference);
+				if (result == null) result = caseExpressionElement(parameterReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -468,6 +485,21 @@ public class ClassDiagramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAttribute(Attribute object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameter(Parameter object) {
 		return null;
 	}
 
@@ -723,6 +755,21 @@ public class ClassDiagramSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAttributeReference(AttributeReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseParameterReference(ParameterReference object) {
 		return null;
 	}
 

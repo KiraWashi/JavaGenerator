@@ -25,6 +25,8 @@ import ClassDiagram.ModelBase;
 import ClassDiagram.NamedElement;
 import ClassDiagram.Operation;
 import ClassDiagram.Operator;
+import ClassDiagram.Parameter;
+import ClassDiagram.ParameterReference;
 import ClassDiagram.StringType;
 import ClassDiagram.Type;
 import ClassDiagram.Var;
@@ -215,6 +217,8 @@ public class ClassDiagramValidator extends EObjectValidator {
 				return validateClass((ClassDiagram.Class)value, diagnostics, context);
 			case ClassDiagramPackage.ATTRIBUTE:
 				return validateAttribute((Attribute)value, diagnostics, context);
+			case ClassDiagramPackage.PARAMETER:
+				return validateParameter((Parameter)value, diagnostics, context);
 			case ClassDiagramPackage.METHOD:
 				return validateMethod((Method)value, diagnostics, context);
 			case ClassDiagramPackage.INTERFACE:
@@ -249,6 +253,8 @@ public class ClassDiagramValidator extends EObjectValidator {
 				return validateVariableReference((VariableReference)value, diagnostics, context);
 			case ClassDiagramPackage.ATTRIBUTE_REFERENCE:
 				return validateAttributeReference((AttributeReference)value, diagnostics, context);
+			case ClassDiagramPackage.PARAMETER_REFERENCE:
+				return validateParameterReference((ParameterReference)value, diagnostics, context);
 			case ClassDiagramPackage.OPERATOR:
 				return validateOperator((Operator)value, diagnostics, context);
 			default:
@@ -525,6 +531,15 @@ public class ClassDiagramValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean validateParameter(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parameter, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean validateMethod(Method method, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(method, diagnostics, context)) return false;
 		boolean result = validate_EveryMultiplicityConforms(method, diagnostics, context);
@@ -723,6 +738,15 @@ public class ClassDiagramValidator extends EObjectValidator {
 	 */
 	public boolean validateAttributeReference(AttributeReference attributeReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(attributeReference, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParameterReference(ParameterReference parameterReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(parameterReference, diagnostics, context);
 	}
 
 	/**

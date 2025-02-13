@@ -233,6 +233,29 @@ public class ClassDiagramItemProviderAdapterFactory extends ClassDiagramAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ClassDiagram.Parameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterItemProvider parameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ClassDiagram.Parameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterAdapter() {
+		if (parameterItemProvider == null) {
+			parameterItemProvider = new ParameterItemProvider(this);
+		}
+
+		return parameterItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ClassDiagram.Method} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -555,6 +578,29 @@ public class ClassDiagramItemProviderAdapterFactory extends ClassDiagramAdapterF
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ClassDiagram.ParameterReference} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ParameterReferenceItemProvider parameterReferenceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ClassDiagram.ParameterReference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createParameterReferenceAdapter() {
+		if (parameterReferenceItemProvider == null) {
+			parameterReferenceItemProvider = new ParameterReferenceItemProvider(this);
+		}
+
+		return parameterReferenceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -666,6 +712,7 @@ public class ClassDiagramItemProviderAdapterFactory extends ClassDiagramAdapterF
 		if (booleanTypeItemProvider != null) booleanTypeItemProvider.dispose();
 		if (classItemProvider != null) classItemProvider.dispose();
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
 		if (methodItemProvider != null) methodItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
 		if (associationEndItemProvider != null) associationEndItemProvider.dispose();
@@ -680,6 +727,7 @@ public class ClassDiagramItemProviderAdapterFactory extends ClassDiagramAdapterF
 		if (assignmentItemProvider != null) assignmentItemProvider.dispose();
 		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
 		if (attributeReferenceItemProvider != null) attributeReferenceItemProvider.dispose();
+		if (parameterReferenceItemProvider != null) parameterReferenceItemProvider.dispose();
 	}
 
 }

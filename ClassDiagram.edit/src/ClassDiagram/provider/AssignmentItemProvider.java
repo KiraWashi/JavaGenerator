@@ -226,6 +226,11 @@ public class AssignmentItemProvider
 			(createChildParameter
 				(ClassDiagramPackage.Literals.ASSIGNMENT__EXPRESSION,
 				 ClassDiagramFactory.eINSTANCE.createAttributeReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ClassDiagramPackage.Literals.ASSIGNMENT__EXPRESSION,
+				 ClassDiagramFactory.eINSTANCE.createParameterReference()));
 	}
 
 	/**

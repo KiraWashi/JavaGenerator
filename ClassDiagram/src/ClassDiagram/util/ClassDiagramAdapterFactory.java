@@ -24,6 +24,8 @@ import ClassDiagram.Method;
 import ClassDiagram.ModelBase;
 import ClassDiagram.NamedElement;
 import ClassDiagram.Operation;
+import ClassDiagram.Parameter;
+import ClassDiagram.ParameterReference;
 import ClassDiagram.StringType;
 import ClassDiagram.Type;
 import ClassDiagram.Var;
@@ -139,6 +141,10 @@ public class ClassDiagramAdapterFactory extends AdapterFactoryImpl {
 				return createAttributeAdapter();
 			}
 			@Override
+			public Adapter caseParameter(Parameter object) {
+				return createParameterAdapter();
+			}
+			@Override
 			public Adapter caseMethod(Method object) {
 				return createMethodAdapter();
 			}
@@ -205,6 +211,10 @@ public class ClassDiagramAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAttributeReference(AttributeReference object) {
 				return createAttributeReferenceAdapter();
+			}
+			@Override
+			public Adapter caseParameterReference(ParameterReference object) {
+				return createParameterReferenceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -377,6 +387,20 @@ public class ClassDiagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Parameter <em>Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Parameter
+	 * @generated
+	 */
+	public Adapter createParameterAdapter() {
 		return null;
 	}
 
@@ -615,6 +639,20 @@ public class ClassDiagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAttributeReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.ParameterReference <em>Parameter Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.ParameterReference
+	 * @generated
+	 */
+	public Adapter createParameterReferenceAdapter() {
 		return null;
 	}
 
