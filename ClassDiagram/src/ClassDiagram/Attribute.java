@@ -18,13 +18,14 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *   <li>{@link ClassDiagram.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link ClassDiagram.Attribute#getOwner <em>Owner</em>}</li>
  *   <li>{@link ClassDiagram.Attribute#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link ClassDiagram.Attribute#getInitialValue <em>Initial Value</em>}</li>
  * </ul>
  *
  * @see ClassDiagram.ClassDiagramPackage#getAttribute()
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attributeNotVoid'"
  * @generated
  */
-public interface Attribute extends NamedElement {
+public interface Attribute extends NamedElement, Var {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -92,6 +93,28 @@ public interface Attribute extends NamedElement {
 	 * @generated
 	 */
 	void setMultiplicity(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Initial Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Initial Value</em>' containment reference.
+	 * @see #setInitialValue(Data)
+	 * @see ClassDiagram.ClassDiagramPackage#getAttribute_InitialValue()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Data getInitialValue();
+
+	/**
+	 * Sets the value of the '{@link ClassDiagram.Attribute#getInitialValue <em>Initial Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Initial Value</em>' containment reference.
+	 * @see #getInitialValue()
+	 * @generated
+	 */
+	void setInitialValue(Data value);
 
 	/**
 	 * <!-- begin-user-doc -->

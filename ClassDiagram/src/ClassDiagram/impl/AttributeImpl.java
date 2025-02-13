@@ -6,6 +6,7 @@ import ClassDiagram.Attribute;
 import ClassDiagram.ClassDiagramPackage;
 import ClassDiagram.ClassDiagramTables;
 import ClassDiagram.Classifier;
+import ClassDiagram.Data;
 import ClassDiagram.Type;
 
 import java.lang.reflect.InvocationTargetException;
@@ -52,6 +53,7 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
  *   <li>{@link ClassDiagram.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link ClassDiagram.impl.AttributeImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link ClassDiagram.impl.AttributeImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link ClassDiagram.impl.AttributeImpl#getInitialValue <em>Initial Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +88,16 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * @ordered
 	 */
 	protected int multiplicity = MULTIPLICITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInitialValue() <em>Initial Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitialValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Data initialValue;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +230,51 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
+	public Data getInitialValue() {
+		return initialValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInitialValue(Data newInitialValue, NotificationChain msgs) {
+		Data oldInitialValue = initialValue;
+		initialValue = newInitialValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE, oldInitialValue, newInitialValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInitialValue(Data newInitialValue) {
+		if (newInitialValue != initialValue) {
+			NotificationChain msgs = null;
+			if (initialValue != null)
+				msgs = ((InternalEObject)initialValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE, null, msgs);
+			if (newInitialValue != null)
+				msgs = ((InternalEObject)newInitialValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE, null, msgs);
+			msgs = basicSetInitialValue(newInitialValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE, newInitialValue, newInitialValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean attributeNotVoid(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		final String constraintName = "Attribute::attributeNotVoid";
 		try {
@@ -294,6 +351,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 		switch (featureID) {
 			case ClassDiagramPackage.ATTRIBUTE__OWNER:
 				return basicSetOwner(null, msgs);
+			case ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE:
+				return basicSetInitialValue(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -327,6 +386,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return getOwner();
 			case ClassDiagramPackage.ATTRIBUTE__MULTIPLICITY:
 				return getMultiplicity();
+			case ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE:
+				return getInitialValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -347,6 +408,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return;
 			case ClassDiagramPackage.ATTRIBUTE__MULTIPLICITY:
 				setMultiplicity((Integer)newValue);
+				return;
+			case ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE:
+				setInitialValue((Data)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -369,6 +433,9 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 			case ClassDiagramPackage.ATTRIBUTE__MULTIPLICITY:
 				setMultiplicity(MULTIPLICITY_EDEFAULT);
 				return;
+			case ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE:
+				setInitialValue((Data)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -387,6 +454,8 @@ public class AttributeImpl extends NamedElementImpl implements Attribute {
 				return getOwner() != null;
 			case ClassDiagramPackage.ATTRIBUTE__MULTIPLICITY:
 				return multiplicity != MULTIPLICITY_EDEFAULT;
+			case ClassDiagramPackage.ATTRIBUTE__INITIAL_VALUE:
+				return initialValue != null;
 		}
 		return super.eIsSet(featureID);
 	}

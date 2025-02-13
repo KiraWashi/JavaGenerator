@@ -2,20 +2,33 @@
  */
 package ClassDiagram.util;
 
+import ClassDiagram.Assignment;
 import ClassDiagram.Association;
 import ClassDiagram.AssociationEnd;
 import ClassDiagram.Attribute;
+import ClassDiagram.AttributeReference;
+import ClassDiagram.BooleanData;
 import ClassDiagram.BooleanType;
+import ClassDiagram.BooleanVariable;
 import ClassDiagram.ClassDiagramPackage;
 import ClassDiagram.Classifier;
+import ClassDiagram.Data;
 import ClassDiagram.DataType;
+import ClassDiagram.Expression;
+import ClassDiagram.ExpressionElement;
+import ClassDiagram.IntegerData;
 import ClassDiagram.IntegerType;
+import ClassDiagram.IntegerVariable;
 import ClassDiagram.Interface;
 import ClassDiagram.Method;
 import ClassDiagram.ModelBase;
 import ClassDiagram.NamedElement;
+import ClassDiagram.Operation;
 import ClassDiagram.StringType;
 import ClassDiagram.Type;
+import ClassDiagram.Var;
+import ClassDiagram.Variable;
+import ClassDiagram.VariableReference;
 import ClassDiagram.VoidType;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -140,6 +153,58 @@ public class ClassDiagramAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAssociation(Association object) {
 				return createAssociationAdapter();
+			}
+			@Override
+			public Adapter caseExpressionElement(ExpressionElement object) {
+				return createExpressionElementAdapter();
+			}
+			@Override
+			public Adapter caseVar(Var object) {
+				return createVarAdapter();
+			}
+			@Override
+			public Adapter caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			@Override
+			public Adapter caseData(Data object) {
+				return createDataAdapter();
+			}
+			@Override
+			public Adapter caseBooleanData(BooleanData object) {
+				return createBooleanDataAdapter();
+			}
+			@Override
+			public Adapter caseIntegerData(IntegerData object) {
+				return createIntegerDataAdapter();
+			}
+			@Override
+			public Adapter caseVariable(Variable object) {
+				return createVariableAdapter();
+			}
+			@Override
+			public Adapter caseBooleanVariable(BooleanVariable object) {
+				return createBooleanVariableAdapter();
+			}
+			@Override
+			public Adapter caseIntegerVariable(IntegerVariable object) {
+				return createIntegerVariableAdapter();
+			}
+			@Override
+			public Adapter caseOperation(Operation object) {
+				return createOperationAdapter();
+			}
+			@Override
+			public Adapter caseAssignment(Assignment object) {
+				return createAssignmentAdapter();
+			}
+			@Override
+			public Adapter caseVariableReference(VariableReference object) {
+				return createVariableReferenceAdapter();
+			}
+			@Override
+			public Adapter caseAttributeReference(AttributeReference object) {
+				return createAttributeReferenceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -368,6 +433,188 @@ public class ClassDiagramAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssociationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.ExpressionElement <em>Expression Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.ExpressionElement
+	 * @generated
+	 */
+	public Adapter createExpressionElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Var <em>Var</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Var
+	 * @generated
+	 */
+	public Adapter createVarAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Data <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Data
+	 * @generated
+	 */
+	public Adapter createDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.BooleanData <em>Boolean Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.BooleanData
+	 * @generated
+	 */
+	public Adapter createBooleanDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.IntegerData <em>Integer Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.IntegerData
+	 * @generated
+	 */
+	public Adapter createIntegerDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Variable
+	 * @generated
+	 */
+	public Adapter createVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.BooleanVariable <em>Boolean Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.BooleanVariable
+	 * @generated
+	 */
+	public Adapter createBooleanVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.IntegerVariable <em>Integer Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.IntegerVariable
+	 * @generated
+	 */
+	public Adapter createIntegerVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Operation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Operation
+	 * @generated
+	 */
+	public Adapter createOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.Assignment <em>Assignment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.Assignment
+	 * @generated
+	 */
+	public Adapter createAssignmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.VariableReference <em>Variable Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.VariableReference
+	 * @generated
+	 */
+	public Adapter createVariableReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ClassDiagram.AttributeReference <em>Attribute Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ClassDiagram.AttributeReference
+	 * @generated
+	 */
+	public Adapter createAttributeReferenceAdapter() {
 		return null;
 	}
 

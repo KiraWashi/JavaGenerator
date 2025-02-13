@@ -6,6 +6,21 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>ClassDiagram.ecore</foreignModel>
   <genPackages prefix="ClassDiagram" disposableProviderFactory="true" ecorePackage="ClassDiagram.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ClassDiagram.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/add"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/sub"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/eq"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/mul"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/gt"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/lt"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/lte"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/gte"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/div"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/and"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/neq"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/or"/>
+      <genEnumLiterals ecoreEnumLiteral="ClassDiagram.ecore#//Operator/not"/>
+    </genEnums>
     <genClasses ecoreClass="ClassDiagram.ecore#//ModelBase">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//ModelBase/voidT"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//ModelBase/stringT"/>
@@ -36,12 +51,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Attribute/type"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Attribute/owner"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Attribute/multiplicity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Attribute/initialValue"/>
     </genClasses>
     <genClasses ecoreClass="ClassDiagram.ecore#//Method">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/returnType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/returnVariable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/paramTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Method/paramNames"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/owner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Method/body"/>
     </genClasses>
     <genClasses ecoreClass="ClassDiagram.ecore#//Interface">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Interface/implementedBy"/>
@@ -54,6 +72,45 @@
     </genClasses>
     <genClasses ecoreClass="ClassDiagram.ecore#//Association">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Association/ends"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ClassDiagram.ecore#//ExpressionElement"/>
+    <genClasses image="false" ecoreClass="ClassDiagram.ecore#//Var"/>
+    <genClasses ecoreClass="ClassDiagram.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Expression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Expression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Expression/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Expression/_name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ClassDiagram.ecore#//Data"/>
+    <genClasses ecoreClass="ClassDiagram.ecore#//BooleanData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//BooleanData/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//IntegerData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//IntegerData/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ClassDiagram.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Variable/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Variable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//BooleanVariable"/>
+    <genClasses ecoreClass="ClassDiagram.ecore#//IntegerVariable"/>
+    <genClasses ecoreClass="ClassDiagram.ecore#//Operation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Operation/contents"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Operation/localVariables"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Assignment/expression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//Assignment/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//Assignment/_name"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//VariableReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//VariableReference/variable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//VariableReference/_name"/>
+    </genClasses>
+    <genClasses ecoreClass="ClassDiagram.ecore#//AttributeReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ClassDiagram.ecore#//AttributeReference/atttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ClassDiagram.ecore#//AttributeReference/_name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

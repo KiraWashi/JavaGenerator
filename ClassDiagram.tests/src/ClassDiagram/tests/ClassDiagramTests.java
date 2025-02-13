@@ -1,0 +1,54 @@
+/**
+ */
+package ClassDiagram.tests;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
+import junit.textui.TestRunner;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test suite for the '<em><b>ClassDiagram</b></em>' package.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class ClassDiagramTests extends TestSuite {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(suite());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static Test suite() {
+		TestSuite suite = new ClassDiagramTests("ClassDiagram Tests");
+		suite.addTestSuite(VoidTypeTest.class);
+		suite.addTestSuite(IntegerTypeTest.class);
+		suite.addTestSuite(StringTypeTest.class);
+		suite.addTestSuite(BooleanTypeTest.class);
+		suite.addTestSuite(ClassTest.class);
+		suite.addTestSuite(AttributeTest.class);
+		suite.addTestSuite(MethodTest.class);
+		suite.addTestSuite(InterfaceTest.class);
+		return suite;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClassDiagramTests(String name) {
+		super(name);
+	}
+
+} //ClassDiagramTests

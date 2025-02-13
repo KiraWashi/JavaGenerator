@@ -2,20 +2,34 @@
  */
 package ClassDiagram.util;
 
+import ClassDiagram.Assignment;
 import ClassDiagram.Association;
 import ClassDiagram.AssociationEnd;
 import ClassDiagram.Attribute;
+import ClassDiagram.AttributeReference;
+import ClassDiagram.BooleanData;
 import ClassDiagram.BooleanType;
+import ClassDiagram.BooleanVariable;
 import ClassDiagram.ClassDiagramPackage;
 import ClassDiagram.Classifier;
+import ClassDiagram.Data;
 import ClassDiagram.DataType;
+import ClassDiagram.Expression;
+import ClassDiagram.ExpressionElement;
+import ClassDiagram.IntegerData;
 import ClassDiagram.IntegerType;
+import ClassDiagram.IntegerVariable;
 import ClassDiagram.Interface;
 import ClassDiagram.Method;
 import ClassDiagram.ModelBase;
 import ClassDiagram.NamedElement;
+import ClassDiagram.Operation;
+import ClassDiagram.Operator;
 import ClassDiagram.StringType;
 import ClassDiagram.Type;
+import ClassDiagram.Var;
+import ClassDiagram.Variable;
+import ClassDiagram.VariableReference;
 import ClassDiagram.VoidType;
 
 import java.util.Map;
@@ -209,6 +223,34 @@ public class ClassDiagramValidator extends EObjectValidator {
 				return validateAssociationEnd((AssociationEnd)value, diagnostics, context);
 			case ClassDiagramPackage.ASSOCIATION:
 				return validateAssociation((Association)value, diagnostics, context);
+			case ClassDiagramPackage.EXPRESSION_ELEMENT:
+				return validateExpressionElement((ExpressionElement)value, diagnostics, context);
+			case ClassDiagramPackage.VAR:
+				return validateVar((Var)value, diagnostics, context);
+			case ClassDiagramPackage.EXPRESSION:
+				return validateExpression((Expression)value, diagnostics, context);
+			case ClassDiagramPackage.DATA:
+				return validateData((Data)value, diagnostics, context);
+			case ClassDiagramPackage.BOOLEAN_DATA:
+				return validateBooleanData((BooleanData)value, diagnostics, context);
+			case ClassDiagramPackage.INTEGER_DATA:
+				return validateIntegerData((IntegerData)value, diagnostics, context);
+			case ClassDiagramPackage.VARIABLE:
+				return validateVariable((Variable)value, diagnostics, context);
+			case ClassDiagramPackage.BOOLEAN_VARIABLE:
+				return validateBooleanVariable((BooleanVariable)value, diagnostics, context);
+			case ClassDiagramPackage.INTEGER_VARIABLE:
+				return validateIntegerVariable((IntegerVariable)value, diagnostics, context);
+			case ClassDiagramPackage.OPERATION:
+				return validateOperation((Operation)value, diagnostics, context);
+			case ClassDiagramPackage.ASSIGNMENT:
+				return validateAssignment((Assignment)value, diagnostics, context);
+			case ClassDiagramPackage.VARIABLE_REFERENCE:
+				return validateVariableReference((VariableReference)value, diagnostics, context);
+			case ClassDiagramPackage.ATTRIBUTE_REFERENCE:
+				return validateAttributeReference((AttributeReference)value, diagnostics, context);
+			case ClassDiagramPackage.OPERATOR:
+				return validateOperator((Operator)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -564,6 +606,132 @@ public class ClassDiagramValidator extends EObjectValidator {
 	 */
 	public boolean validateAssociation(Association association, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(association, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExpressionElement(ExpressionElement expressionElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(expressionElement, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVar(Var var, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(var, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExpression(Expression expression, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(expression, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateData(Data data, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(data, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBooleanData(BooleanData booleanData, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(booleanData, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntegerData(IntegerData integerData, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(integerData, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVariable(Variable variable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(variable, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBooleanVariable(BooleanVariable booleanVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(booleanVariable, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateIntegerVariable(IntegerVariable integerVariable, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(integerVariable, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOperation(Operation operation, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(operation, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAssignment(Assignment assignment, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(assignment, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateVariableReference(VariableReference variableReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(variableReference, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAttributeReference(AttributeReference attributeReference, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(attributeReference, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOperator(Operator operator, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
 	}
 
 	/**

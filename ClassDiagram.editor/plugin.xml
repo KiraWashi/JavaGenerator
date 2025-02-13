@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ClassDiagram -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ClassDiagram.presentation.ClassDiagramModelWizardID"
+            name="%_UI_ClassDiagramModelWizard_label"
+            class="ClassDiagram.presentation.ClassDiagramModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ClassDiagramModelFile.gif">
+         <description>%_UI_ClassDiagramModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated ClassDiagram -->
+      <editor
+            id="ClassDiagram.presentation.ClassDiagramEditorID"
+            name="%_UI_ClassDiagramEditor_label"
+            icon="icons/full/obj16/ClassDiagramModelFile.gif"
+            extensions="classdiagram"
+            class="ClassDiagram.presentation.ClassDiagramEditor"
+            contributorClass="ClassDiagram.presentation.ClassDiagramActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

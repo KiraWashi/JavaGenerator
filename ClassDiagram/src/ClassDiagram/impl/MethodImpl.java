@@ -6,8 +6,10 @@ import ClassDiagram.ClassDiagramPackage;
 import ClassDiagram.ClassDiagramTables;
 import ClassDiagram.Classifier;
 import ClassDiagram.Method;
+import ClassDiagram.Operation;
 import ClassDiagram.Type;
 
+import ClassDiagram.Variable;
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -61,9 +63,11 @@ import org.eclipse.ocl.pivot.values.OrderedSetValue;
  * </p>
  * <ul>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link ClassDiagram.impl.MethodImpl#getReturnVariable <em>Return Variable</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getParamTypes <em>Param Types</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getParamNames <em>Param Names</em>}</li>
  *   <li>{@link ClassDiagram.impl.MethodImpl#getOwner <em>Owner</em>}</li>
+ *   <li>{@link ClassDiagram.impl.MethodImpl#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @generated
@@ -78,6 +82,16 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * @ordered
 	 */
 	protected Type returnType;
+
+	/**
+	 * The cached value of the '{@link #getReturnVariable() <em>Return Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReturnVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Variable returnVariable;
 
 	/**
 	 * The cached value of the '{@link #getParamTypes() <em>Param Types</em>}' reference list.
@@ -98,6 +112,16 @@ public class MethodImpl extends NamedElementImpl implements Method {
 	 * @ordered
 	 */
 	protected EList<String> paramNames;
+
+	/**
+	 * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBody()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operation body;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,6 +180,46 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		returnType = newReturnType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__RETURN_TYPE, oldReturnType, returnType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Variable getReturnVariable() {
+		if (returnVariable != null && returnVariable.eIsProxy()) {
+			InternalEObject oldReturnVariable = (InternalEObject)returnVariable;
+			returnVariable = (Variable)eResolveProxy(oldReturnVariable);
+			if (returnVariable != oldReturnVariable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ClassDiagramPackage.METHOD__RETURN_VARIABLE, oldReturnVariable, returnVariable));
+			}
+		}
+		return returnVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable basicGetReturnVariable() {
+		return returnVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReturnVariable(Variable newReturnVariable) {
+		Variable oldReturnVariable = returnVariable;
+		returnVariable = newReturnVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__RETURN_VARIABLE, oldReturnVariable, returnVariable));
 	}
 
 	/**
@@ -225,6 +289,51 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__OWNER, newOwner, newOwner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Operation getBody() {
+		return body;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBody(Operation newBody, NotificationChain msgs) {
+		Operation oldBody = body;
+		body = newBody;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__BODY, oldBody, newBody);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBody(Operation newBody) {
+		if (newBody != body) {
+			NotificationChain msgs = null;
+			if (body != null)
+				msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__BODY, null, msgs);
+			if (newBody != null)
+				msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ClassDiagramPackage.METHOD__BODY, null, msgs);
+			msgs = basicSetBody(newBody, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ClassDiagramPackage.METHOD__BODY, newBody, newBody));
 	}
 
 	/**
@@ -398,6 +507,8 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		switch (featureID) {
 			case ClassDiagramPackage.METHOD__OWNER:
 				return basicSetOwner(null, msgs);
+			case ClassDiagramPackage.METHOD__BODY:
+				return basicSetBody(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -427,12 +538,17 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			case ClassDiagramPackage.METHOD__RETURN_TYPE:
 				if (resolve) return getReturnType();
 				return basicGetReturnType();
+			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
+				if (resolve) return getReturnVariable();
+				return basicGetReturnVariable();
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
 				return getParamTypes();
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
 				return getParamNames();
 			case ClassDiagramPackage.METHOD__OWNER:
 				return getOwner();
+			case ClassDiagramPackage.METHOD__BODY:
+				return getBody();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -449,6 +565,9 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			case ClassDiagramPackage.METHOD__RETURN_TYPE:
 				setReturnType((Type)newValue);
 				return;
+			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
+				setReturnVariable((Variable)newValue);
+				return;
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
 				getParamTypes().clear();
 				getParamTypes().addAll((Collection<? extends Type>)newValue);
@@ -459,6 +578,9 @@ public class MethodImpl extends NamedElementImpl implements Method {
 				return;
 			case ClassDiagramPackage.METHOD__OWNER:
 				setOwner((Classifier)newValue);
+				return;
+			case ClassDiagramPackage.METHOD__BODY:
+				setBody((Operation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -475,6 +597,9 @@ public class MethodImpl extends NamedElementImpl implements Method {
 			case ClassDiagramPackage.METHOD__RETURN_TYPE:
 				setReturnType((Type)null);
 				return;
+			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
+				setReturnVariable((Variable)null);
+				return;
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
 				getParamTypes().clear();
 				return;
@@ -483,6 +608,9 @@ public class MethodImpl extends NamedElementImpl implements Method {
 				return;
 			case ClassDiagramPackage.METHOD__OWNER:
 				setOwner((Classifier)null);
+				return;
+			case ClassDiagramPackage.METHOD__BODY:
+				setBody((Operation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -498,12 +626,16 @@ public class MethodImpl extends NamedElementImpl implements Method {
 		switch (featureID) {
 			case ClassDiagramPackage.METHOD__RETURN_TYPE:
 				return returnType != null;
+			case ClassDiagramPackage.METHOD__RETURN_VARIABLE:
+				return returnVariable != null;
 			case ClassDiagramPackage.METHOD__PARAM_TYPES:
 				return paramTypes != null && !paramTypes.isEmpty();
 			case ClassDiagramPackage.METHOD__PARAM_NAMES:
 				return paramNames != null && !paramNames.isEmpty();
 			case ClassDiagramPackage.METHOD__OWNER:
 				return getOwner() != null;
+			case ClassDiagramPackage.METHOD__BODY:
+				return body != null;
 		}
 		return super.eIsSet(featureID);
 	}

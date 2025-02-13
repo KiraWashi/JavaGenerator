@@ -17,9 +17,11 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link ClassDiagram.Method#getReturnType <em>Return Type</em>}</li>
+ *   <li>{@link ClassDiagram.Method#getReturnVariable <em>Return Variable</em>}</li>
  *   <li>{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}</li>
  *   <li>{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}</li>
  *   <li>{@link ClassDiagram.Method#getOwner <em>Owner</em>}</li>
+ *   <li>{@link ClassDiagram.Method#getBody <em>Body</em>}</li>
  * </ul>
  *
  * @see ClassDiagram.ClassDiagramPackage#getMethod()
@@ -48,6 +50,28 @@ public interface Method extends NamedElement {
 	 * @generated
 	 */
 	void setReturnType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Return Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Return Variable</em>' reference.
+	 * @see #setReturnVariable(Variable)
+	 * @see ClassDiagram.ClassDiagramPackage#getMethod_ReturnVariable()
+	 * @model
+	 * @generated
+	 */
+	Variable getReturnVariable();
+
+	/**
+	 * Sets the value of the '{@link ClassDiagram.Method#getReturnVariable <em>Return Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Return Variable</em>' reference.
+	 * @see #getReturnVariable()
+	 * @generated
+	 */
+	void setReturnVariable(Variable value);
 
 	/**
 	 * Returns the value of the '<em><b>Param Types</b></em>' reference list.
@@ -96,6 +120,28 @@ public interface Method extends NamedElement {
 	 * @generated
 	 */
 	void setOwner(Classifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Body</em>' containment reference.
+	 * @see #setBody(Operation)
+	 * @see ClassDiagram.ClassDiagramPackage#getMethod_Body()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Operation getBody();
+
+	/**
+	 * Sets the value of the '{@link ClassDiagram.Method#getBody <em>Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Body</em>' containment reference.
+	 * @see #getBody()
+	 * @generated
+	 */
+	void setBody(Operation value);
 
 	/**
 	 * <!-- begin-user-doc -->
