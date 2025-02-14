@@ -97,6 +97,7 @@ public class ClassDiagramTables extends AbstractTables
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = ClassDiagramTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_Operator = ClassDiagramTables.PACKid_http_c_s_s_ClassDiagram_s_1_0.getEnumerationId("Operator");
 	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_PRIMid_String = TypeId.ORDERED_SET.getSpecializedId(TypeId.STRING, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ String STR_boolean = "boolean";
 	public static final /*@NonInvalid*/ String STR_integer = "integer";
 	public static final /*@NonInvalid*/ String STR_string = "string";
@@ -116,8 +117,9 @@ public class ClassDiagramTables extends AbstractTables
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Class = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Class, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Interface = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Interface, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Method = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Method, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Parameter = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Parameter, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
+	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Type = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Type, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Variable = TypeId.ORDERED_SET.getSpecializedId(ClassDiagramTables.CLSSid_Variable, false, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
-	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Parameter = TypeId.SET.getSpecializedId(ClassDiagramTables.CLSSid_Parameter, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Type = TypeId.SET.getSpecializedId(ClassDiagramTables.CLSSid_Type, true, ValueUtil.ZERO_VALUE, ValueUtil.UNLIMITED_VALUE);
 
 	/**
@@ -566,12 +568,12 @@ public class ClassDiagramTables extends AbstractTables
 		public static final ExecutorProperty _Type__Parameter__type = new ExecutorPropertyWithImplementation("Parameter", Types._Type, 3, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.PARAMETER__TYPE));
 
 		public static final ExecutorProperty _Var__Assignment__variable = new ExecutorPropertyWithImplementation("Assignment", Types._Var, 0, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.ASSIGNMENT__VARIABLE));
+		public static final ExecutorProperty _Var__Method__returnVariable = new ExecutorPropertyWithImplementation("Method", Types._Var, 1, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__RETURN_VARIABLE));
 
 		public static final ExecutorProperty _Variable__name = new EcoreExecutorProperty(ClassDiagramPackage.Literals.VARIABLE__NAME, Types._Variable, 0);
 		public static final ExecutorProperty _Variable__value = new EcoreExecutorProperty(ClassDiagramPackage.Literals.VARIABLE__VALUE, Types._Variable, 1);
-		public static final ExecutorProperty _Variable__Method__returnVariable = new ExecutorPropertyWithImplementation("Method", Types._Variable, 2, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.METHOD__RETURN_VARIABLE));
-		public static final ExecutorProperty _Variable__Operation__localVariables = new ExecutorPropertyWithImplementation("Operation", Types._Variable, 3, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.OPERATION__LOCAL_VARIABLES));
-		public static final ExecutorProperty _Variable__VariableReference__variable = new ExecutorPropertyWithImplementation("VariableReference", Types._Variable, 4, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.VARIABLE_REFERENCE__VARIABLE));
+		public static final ExecutorProperty _Variable__Operation__localVariables = new ExecutorPropertyWithImplementation("Operation", Types._Variable, 2, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.OPERATION__LOCAL_VARIABLES));
+		public static final ExecutorProperty _Variable__VariableReference__variable = new ExecutorPropertyWithImplementation("VariableReference", Types._Variable, 3, new EcoreLibraryOppositeProperty(ClassDiagramPackage.Literals.VARIABLE_REFERENCE__VARIABLE));
 
 		public static final ExecutorProperty _VariableReference___name = new EcoreExecutorProperty(ClassDiagramPackage.Literals.VARIABLE_REFERENCE__NAME, Types._VariableReference, 0);
 		public static final ExecutorProperty _VariableReference__variable = new EcoreExecutorProperty(ClassDiagramPackage.Literals.VARIABLE_REFERENCE__VARIABLE, Types._VariableReference, 1);

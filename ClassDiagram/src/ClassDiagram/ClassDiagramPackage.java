@@ -820,7 +820,7 @@ public interface ClassDiagramPackage extends EPackage {
 	int METHOD__RETURN_VARIABLE = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Params</b></em>' containment reference.
+	 * The feature id for the '<em><b>Params</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -829,7 +829,7 @@ public interface ClassDiagramPackage extends EPackage {
 	int METHOD__PARAMS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Param Types</b></em>' reference.
+	 * The feature id for the '<em><b>Param Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -838,7 +838,7 @@ public interface ClassDiagramPackage extends EPackage {
 	int METHOD__PARAM_TYPES = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Param Names</b></em>' attribute.
+	 * The feature id for the '<em><b>Param Names</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2131,10 +2131,10 @@ public interface ClassDiagramPackage extends EPackage {
 	EReference getMethod_ReturnVariable();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link ClassDiagram.Method#getParams <em>Params</em>}'.
+	 * Returns the meta object for the containment reference list '{@link ClassDiagram.Method#getParams <em>Params</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Params</em>'.
+	 * @return the meta object for the containment reference list '<em>Params</em>'.
 	 * @see ClassDiagram.Method#getParams()
 	 * @see #getMethod()
 	 * @generated
@@ -2142,10 +2142,10 @@ public interface ClassDiagramPackage extends EPackage {
 	EReference getMethod_Params();
 
 	/**
-	 * Returns the meta object for the reference '{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}'.
+	 * Returns the meta object for the reference list '{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Param Types</em>'.
+	 * @return the meta object for the reference list '<em>Param Types</em>'.
 	 * @see ClassDiagram.Method#getParamTypes()
 	 * @see #getMethod()
 	 * @generated
@@ -2153,10 +2153,10 @@ public interface ClassDiagramPackage extends EPackage {
 	EReference getMethod_ParamTypes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}'.
+	 * Returns the meta object for the attribute list '{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Param Names</em>'.
+	 * @return the meta object for the attribute list '<em>Param Names</em>'.
 	 * @see ClassDiagram.Method#getParamNames()
 	 * @see #getMethod()
 	 * @generated
@@ -3043,7 +3043,7 @@ public interface ClassDiagramPackage extends EPackage {
 		EReference METHOD__RETURN_VARIABLE = eINSTANCE.getMethod_ReturnVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Params</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3051,7 +3051,7 @@ public interface ClassDiagramPackage extends EPackage {
 		EReference METHOD__PARAMS = eINSTANCE.getMethod_Params();
 
 		/**
-		 * The meta object literal for the '<em><b>Param Types</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Param Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3059,7 +3059,7 @@ public interface ClassDiagramPackage extends EPackage {
 		EReference METHOD__PARAM_TYPES = eINSTANCE.getMethod_ParamTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Param Names</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Param Names</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

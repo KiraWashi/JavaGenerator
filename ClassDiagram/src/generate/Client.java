@@ -2,7 +2,8 @@ package generate;
 
 import java.util.*;
 
-public class Client {
+
+public class Client  {
 
     private String name;
     private String addr;
@@ -22,9 +23,9 @@ public class Client {
         this.addr = addr;
     }
 
-	public String GetName (  ) {
+	public  void  changeAddr (  ) {
 	}
-	public void ChangeAddr (  ) {
-	}
+
+
 
 }

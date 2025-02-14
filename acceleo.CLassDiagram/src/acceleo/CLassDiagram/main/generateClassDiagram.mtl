@@ -29,6 +29,15 @@
     endif endif endif endif endif endif endif endif endif endif endif endif endif
 /]
 
+[query public defaultValue(type : Type) : String = 
+    if (type.oclIsTypeOf(VoidType)) then ''
+    else if (type.oclIsTypeOf(StringType)) then 'null'
+    else if (type.oclIsTypeOf(IntegerType)) then '0'
+    else if (type.oclIsTypeOf(BooleanType)) then 'false'
+    else 'null'
+    endif endif endif endif
+/]
+
 [comment Template pour générer la liste des interfaces implémentées par une classe /]
 [template public interfaceList(cl : Class)]
 [for (inter : Interface | cl.interfaces) before('implements ') separator(', ')][if (inter.name = 'IOperations')]IOperations[else][inter.name/][/if][/for]
@@ -37,7 +46,18 @@
 [template public generateModuleBase(aModelBase : ModelBase)]
 [comment @main/]
 
-[comment Génération de l'interface IOperations une seule fois /]
+[comment Génération des interfaces /]
+[for (inter : Interface | aModelBase.allInterfaces)]
+[file (inter.name.concat('.java'), false, 'UTF-8')]
+package generate;
+
+public interface [inter.name/] {
+    [for (met : Method | inter.methods)]
+    [javaType(met.returnType)/] [met.name/]([for (param : Parameter | met.params) separator(', ')][javaType(param.type)/] [param.name/] [/for]);
+    [/for]
+}
+[/file]
+[/for]
 
 
 [comment Génération des classes /]
@@ -46,9 +66,9 @@
 package generate;
 
 import java.util.*;
-[comment [interfaceList(cl)/]
 
-public class [cl.name/] {
+
+public class [cl.name/] [if (cl.interfaces->size() > 0)]implements [for (inter : Interface | cl.interfaces) separator(', ')][inter.name/][/for][/if] {
 
     [for (att : Attribute | cl.attributes)]
     private [if (att.multiplicity > 1 or att.multiplicity = 0)]List<[javaType(att.type)/]> [att.name/] = new ArrayList<>();[else][javaType(att.type)/] [att.name/];[/if]
@@ -75,14 +95,38 @@ public class [cl.name/] {
     [/for]
 
 	[for (met : Method | cl.methods)]
-	public [javaType(met.returnType)/] [met.name.toUpperFirst()/] ( [for (param : Parameter | met.params) separator(', ')] [javaType(param.type)/] [param.name/] [/for] ) {
+	public [if (met.name <> cl.name)] [javaType(met.returnType)/] [/if] [met.name/] ( [for (param : Parameter | met.params) separator(', ')] [javaType(param.type)/] [param.name/] [/for] ) {
+		[if (not met.corps.oclIsUndefined())]
 		[for (assignement : Assignment | met.corps.contents)]
-    [if (not assignement.expression.oclIsUndefined() and assignement.expression.oclIsTypeOf(Expression))]
+    	[if (not assignement.expression.oclIsUndefined() and assignement.expression.oclIsTypeOf(Expression))]
         [let expr : Expression = assignement.expression.oclAsType(Expression)]
-            this.[assignement._name/] = [if (expr.left.oclIsTypeOf(AttributeReference))] this.[expr.left.oclAsType(AttributeReference)._name/] [elseif (expr.left.oclIsTypeOf(ParameterReference))] [expr.left.oclAsType(ParameterReference)._name/] [elseif (expr.left.oclIsTypeOf(VariableReference))] [expr.left.oclAsType(VariableReference)._name/] [/if] [javaOperator(expr.operator)/] [if (expr.right.oclIsTypeOf(AttributeReference))] this.[expr.right.oclAsType(AttributeReference)._name/] [elseif (expr.right.oclIsTypeOf(ParameterReference))] [expr.right.oclAsType(ParameterReference)._name/] [elseif (expr.right.oclIsTypeOf(VariableReference))] [expr.right.oclAsType(VariableReference)._name/] [/if] [/let] [/if];
-    [/for]
+        this.[assignement._name/] = [if (expr.left.oclIsTypeOf(AttributeReference))] this.[expr.left.oclAsType(AttributeReference)._name/] [elseif (expr.left.oclIsTypeOf(ParameterReference))] [expr.left.oclAsType(ParameterReference)._name/] [elseif (expr.left.oclIsTypeOf(VariableReference))] [expr.left.oclAsType(VariableReference)._name/] [elseif (expr.left.oclIsTypeOf(BooleanData))] [expr.left.oclAsType(BooleanData).value/] [elseif (expr.left.oclIsTypeOf(IntegerData))] [expr.left.oclAsType(IntegerData).value/] [/if] [javaOperator(expr.operator)/] [if (expr.right.oclIsTypeOf(AttributeReference))] this.[expr.right.oclAsType(AttributeReference)._name/] [elseif (expr.right.oclIsTypeOf(ParameterReference))] [expr.right.oclAsType(ParameterReference)._name/] [elseif (expr.right.oclIsTypeOf(VariableReference))] [expr.right.oclAsType(VariableReference)._name/] [elseif (expr.right.oclIsTypeOf(BooleanData))] [expr.right.oclAsType(BooleanData).value/] [elseif (expr.right.oclIsTypeOf(IntegerData))] [expr.right.oclAsType(IntegerData).value/] [/if] [/let];
+		[/if]
+    	[if (met.name = cl.name)]
+		this.[assignement._name/] = [if assignement.expression.oclIsTypeOf(ParameterReference)] [assignement.expression.oclAsType(ParameterReference)._name/] ; [/if]
+		[/if]
+		[/for]
+		[/if]
+		[if (met.name <> cl.name and not met.returnType.oclIsTypeOf(VoidType))]
+			[if (not met.returnVariable.oclIsUndefined())]
+		return [if (met.returnVariable.oclIsTypeOf(Parameter))] [met.returnVariable.oclAsType(Parameter).name/] [elseif (met.returnVariable.oclIsTypeOf(Variable))] [met.returnVariable.oclAsType(Variable).name/][elseif (met.returnVariable.oclIsTypeOf(Attribute))] [met.returnVariable.oclAsType(Attribute).name/][/if];
+			[else]
+				return [defaultValue(met.returnType)/];
+			[/if]
+		[/if]
 	}
+
 	[/for]
+
+	[for (inter : Interface | cl.interfaces)]
+    [for (interfaceMethod : Method | inter.methods)]
+        [if not cl.methods->exists(m | m.name = interfaceMethod.name)]
+	public [javaType(interfaceMethod.returnType)/] [interfaceMethod.name/]([for (param : Parameter | interfaceMethod.params) separator(', ')][javaType(param.type)/] [param.name/][/for]) {
+    	[if not interfaceMethod.returnType.oclIsTypeOf(VoidType)]return [defaultValue(interfaceMethod.returnType)/];[/if]
+	}
+        [/if]
+    [/for]
+[/for]
 
 }
 [/file]

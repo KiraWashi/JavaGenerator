@@ -2,10 +2,11 @@ package generate;
 
 import java.util.*;
 
-public class Account {
+
+public class Account implements IOperations {
 
     private int id;
-    private int aDecouvert;
+    private boolean aDecouvert;
     private int solde;
 
     public int getId() {
@@ -15,11 +16,11 @@ public class Account {
     public void setId(int id) {
         this.id = id;
     }
-    public int getADecouvert() {
+    public boolean getADecouvert() {
         return aDecouvert;
     }
     
-    public void setADecouvert(int aDecouvert) {
+    public void setADecouvert(boolean aDecouvert) {
         this.aDecouvert = aDecouvert;
     }
     public int getSolde() {
@@ -30,10 +31,23 @@ public class Account {
         this.solde = solde;
     }
 
-	public void Debiter (  int somme  ) {
-        this.solde = this.solde - somme;
+	public  void  debiter (  int somme  ) {
+        this.solde =  this.solde  -  somme ;
+        this.aDecouvert =  this.solde  <  0 ;
 	}
-	public void Crediter (  int somme  ) {
+
+	public  void  crediter (  int somme  ) {
+        this.solde =  this.solde  +  somme ;
+        this.aDecouvert =  this.solde  <  0 ;
+	}
+
+	public  Account (  int id  ) {
+		this.id =  id ; 
+	}
+
+
+	public int testMethodeVide() {
+    	return 0;
 	}
 
 }

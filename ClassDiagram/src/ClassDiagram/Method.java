@@ -4,6 +4,7 @@ package ClassDiagram;
 
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,12 +56,12 @@ public interface Method extends NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Return Variable</em>' reference.
-	 * @see #setReturnVariable(Variable)
+	 * @see #setReturnVariable(Var)
 	 * @see ClassDiagram.ClassDiagramPackage#getMethod_ReturnVariable()
 	 * @model
 	 * @generated
 	 */
-	Variable getReturnVariable();
+	Var getReturnVariable();
 
 	/**
 	 * Sets the value of the '{@link ClassDiagram.Method#getReturnVariable <em>Return Variable</em>}' reference.
@@ -70,73 +71,44 @@ public interface Method extends NamedElement {
 	 * @see #getReturnVariable()
 	 * @generated
 	 */
-	void setReturnVariable(Variable value);
+	void setReturnVariable(Var value);
 
 	/**
-	 * Returns the value of the '<em><b>Params</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+	 * The list contents are of type {@link ClassDiagram.Parameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Params</em>' containment reference.
-	 * @see #setParams(Parameter)
+	 * @return the value of the '<em>Params</em>' containment reference list.
 	 * @see ClassDiagram.ClassDiagramPackage#getMethod_Params()
 	 * @model containment="true"
+	 *        annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
-	Parameter getParams();
+	EList<Parameter> getParams();
 
 	/**
-	 * Sets the value of the '{@link ClassDiagram.Method#getParams <em>Params</em>}' containment reference.
+	 * Returns the value of the '<em><b>Param Types</b></em>' reference list.
+	 * The list contents are of type {@link ClassDiagram.Type}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Params</em>' containment reference.
-	 * @see #getParams()
-	 * @generated
-	 */
-	void setParams(Parameter value);
-
-	/**
-	 * Returns the value of the '<em><b>Param Types</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Param Types</em>' reference.
-	 * @see #setParamTypes(Type)
+	 * @return the value of the '<em>Param Types</em>' reference list.
 	 * @see ClassDiagram.ClassDiagramPackage#getMethod_ParamTypes()
-	 * @model
+	 * @model annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
-	Type getParamTypes();
+	EList<Type> getParamTypes();
 
 	/**
-	 * Sets the value of the '{@link ClassDiagram.Method#getParamTypes <em>Param Types</em>}' reference.
+	 * Returns the value of the '<em><b>Param Names</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Param Types</em>' reference.
-	 * @see #getParamTypes()
-	 * @generated
-	 */
-	void setParamTypes(Type value);
-
-	/**
-	 * Returns the value of the '<em><b>Param Names</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Param Names</em>' attribute.
-	 * @see #setParamNames(String)
+	 * @return the value of the '<em>Param Names</em>' attribute list.
 	 * @see ClassDiagram.ClassDiagramPackage#getMethod_ParamNames()
-	 * @model
+	 * @model annotation="http://www.eclipse.org/OCL/Collection nullFree='false'"
 	 * @generated
 	 */
-	String getParamNames();
-
-	/**
-	 * Sets the value of the '{@link ClassDiagram.Method#getParamNames <em>Param Names</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Param Names</em>' attribute.
-	 * @see #getParamNames()
-	 * @generated
-	 */
-	void setParamNames(String value);
+	EList<String> getParamNames();
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
