@@ -97,6 +97,9 @@ public class [cl.name/] [if (cl.interfaces->size() > 0)]implements [for (inter :
 	[for (met : Method | cl.methods)]
 	public [if (met.name <> cl.name)] [javaType(met.returnType)/] [/if] [met.name/] ( [for (param : Parameter | met.params) separator(', ')] [javaType(param.type)/] [param.name/] [/for] ) {
 		[if (not met.corps.oclIsUndefined())]
+		[for (var : Variable | met.corps.localVariables)]
+		[if (var.oclIsTypeOf(BooleanVariable))]boolean[elseif (var.oclIsTypeOf(IntegerVariable))]int[else]Object[/if] [var.name/][if (var.value <> null)] = [if (var.value.oclIsTypeOf(BooleanData))][var.value.oclAsType(BooleanData).value/][elseif (var.value.oclIsTypeOf(IntegerData))][var.value.oclAsType(IntegerData).value/][/if][/if];
+    	[/for]
 		[for (assignement : Assignment | met.corps.contents)]
     	[if (not assignement.expression.oclIsUndefined() and assignement.expression.oclIsTypeOf(Expression))]
         [let expr : Expression = assignement.expression.oclAsType(Expression)]
